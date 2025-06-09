@@ -39,6 +39,9 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+
+  <!-- additional js scripts -->
+  <script src="./static/js/video-control.js"></script>
 </head>
 <body>
 
@@ -193,66 +196,6 @@
   </div>
 </section>
 
-
-
-<!-- <section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/steve.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/chair-tp.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/shiba.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/fullbody.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-blueshirt">
-          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/blueshirt.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-mask">
-          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/mask.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-coffee">
-          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/coffee.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-toby">
-          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/toby2.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-
-
 <section class="section">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
@@ -263,63 +206,128 @@
           <p>
             Robotic manipulation in environments such as biochemical laboratories and kitchens faces challenges due to the rheological heterogeneity of materials, affecting their mechanical response to external forces. Traditional approaches often focus on manipulating materials of a single rheological type, neglecting how operational strategies must adapt when handling materials with varying flow and deformation characteristics. In this work, we introduce a hierarchical decision-making robotic manipulation system for cross-rheological material handling, namely RheoAgent, to tackle the robotics manipulation challenges posed by diverse rheological material scenarios. Our approach combines the material classification capabilities of large vision-language models (LVLMs) — achieving an accuracy of 86.0\% — with dual-modal vision-driven reinforcement learning (RL) using pixel map and voxel map. This integration forms a system capable of flexible operations across various rheological materials. The learning process of the RL module consists of two phases: a rapid learning process for the baseline model and a model fine-tuning process that incorporates specific rheological characteristics, effectively balancing learning costs and model accuracy. Exceeding baseline model-free RL models that have not been fine-tuned by 58.17–98.97\% points through fine-tuning with a model-based approach, the model achieves success rates of 99.08\% and 95.12\% for inviscous materials, 99.07\% and 96.98\% for viscous materials, and 98.53\% and 97.51\% for elasto-plastic materials in the pouring and gathering tasks, respectively. RheoAgent establishes a new paradigm for intelligent material handling, with applications extending to industrial automation, laboratory robotics, and assistive technologies.
           </p>
-          <!-- <p>
-            Our approach augments neural radiance fields
-            (NeRF) by optimizing an
-            additional continuous volumetric deformation field that warps each observed point into a
-            canonical 5D NeRF.
-            We observe that these NeRF-like deformation fields are prone to local minima, and
-            propose a coarse-to-fine optimization method for coordinate-based models that allows for
-            more robust optimization.
-            By adapting principles from geometry processing and physical simulation to NeRF-like
-            models, we propose an elastic regularization of the deformation field that further
-            improves robustness.
-          </p>
-          <p>
-            We show that <span class="dnerf">Nerfies</span> can turn casually captured selfie
-            photos/videos into deformable NeRF
-            models that allow for photorealistic renderings of the subject from arbitrary
-            viewpoints, which we dub <i>"nerfies"</i>. We evaluate our method by collecting data
-            using a
-            rig with two mobile phones that take time-synchronized photos, yielding train/validation
-            images of the same pose at different viewpoints. We show that our method faithfully
-            reconstructs non-rigidly deforming scenes and reproduces unseen views with high
-            fidelity.
-          </p> -->
         </div>
       </div>
     </div>
     <!--/ Abstract. -->
 
+    <!-- Related work. -->
     <div class="columns is-centered has-text-centered">
-      <div class="column is-full">
-        <h2 class="title is-3">Video</h2>
-        <div class="columns is-vcentered">
-          <!-- Left video -->
-          <div class="column">
-            <video controls autoplay muted loop width="100%">
-              <source src="./static/videos/gather_multi.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-            <p class="is-size-6 mt-2">Pouring Task (4× Speed)</p>
-          </div>
-          <!-- Right video -->
-          <div class="column">
-            <video controls autoplay muted loop width="100%">
-              <source src="./static/videos/pour_multi.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-            <p class="is-size-6 mt-2">Gathering Task (4× Speed)</p>
-          </div>
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Related work</h2>
+        <img id="teaser" src="./static/images/related_work_real_finial.png" alt="Schematic image" style="width: 100%; height: auto;">
+        <div class="content has-text-centered">
+          <p>
+            Overview of robotic system manipulation of rheological materials.
+          </p>
         </div>
       </div>
     </div>
+    <!--/ Related work. -->
+
+    <!-- Related work. -->
+    <div class="columns is-centered has-text-justified">
+      <div class="column is-four-fifths">
+        <h2 class="title is-4">How does it work?</h3>
+        <img id="teaser" src="./static/images/method_nmi.png" alt="Schematic image" style="width: 100%; height: auto;">
+        <div class="content has-text-centered">
+          <p>
+            Overview of robotic system manipulation of rheological materials.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Related work. -->
 </section>
 
 
 <section class="section">
   <div class="container is-max-desktop">
+    <!-- Task Selection Panel -->
+    <h3 class="title is-3">Real-time Segmentation and Perception Mapping</h2>
+    <div class="columns is-centered">
+      <div class="column is-one-third">
+        <div class="field">
+          <label class="label">Task</label>
+          <div class="control">
+            <div class="select is-fullwidth">
+              <select id="task-select">
+                <option>Pour task</option>
+                <option>Gather task</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
 
+      <div class="column is-one-third">
+        <div class="field">
+          <label class="label">Material</label>
+          <div class="control">
+            <div class="select is-fullwidth">
+              <select id="material-select">
+                <option>Inviscid fluid</option>
+                <option>Viscous fluid</option>
+                <option>Elasto-plastic fluid</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-one-third">
+        <div class="field">
+          <label class="label">Status</label>
+          <div class="buttons has-addons is-centered">
+            <button class="button is-black is-selected">Success</button>
+            <button class="button">Fail</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video Display Panel -->
+    <div class="columns is-centered">
+      <div class="column is-half has-text-centered">
+        <video id="result-video" controls muted autoplay playsinline width="100%">
+          <source src="" type="video/mp4" id="video-source">
+          Your browser does not support the video tag.
+        </video>
+        <p id="video-fallback" style="color: red; margin-top: 1em; display: none;">
+          No video available for this combination.
+        </p>
+      </div>
+    </div>
+
+
+    <!-- Re-rendering. -->
+    <h3 class="title is-3">Real-time Segmentation and Perception Mapping</h2>
+    <div class="content has-text-justified">
+      <p>
+        We employ the <strong>Segment Anything Model 2 (SAM2)</strong> to perform real-time segmentation of rheological materials from RGB-D inputs.
+        To build a consistent spatial understanding, <strong>multi-view RGB-D frames</strong> are fused into a globally aligned segmented point cloud.
+        This point cloud is then encoded into two representations:
+      </p>
+      <ul>
+        <li><strong>Pixel map</strong>: generated via orthographic projection of the segmented point cloud onto the vertical plane.</li>
+        <li><strong>Voxel map</strong>: constructed by encoding spatial occupancy on a latitude-longitude grid with normalized distances.</li>
+      </ul>
+      <p>
+        These representations serve as structured perceptual inputs for downstream robotic manipulation policies.
+      </p>
+    </div>
+    <div class="content has-text-centered">
+      <video id="replay-video"
+              controls
+              muted
+              preload
+              playsinline
+              width="75%">
+        <source src="./static/videos/perception.mp4"
+                type="video/mp4">
+      </video>
+    </div>
+    <!--/ Re-rendering. -->
     <div class="columns is-centered">
 
       <!-- Pour. -->
@@ -356,36 +364,6 @@
     </div>
     <!--/ Gather. -->
 
-
-    <!-- Re-rendering. -->
-    <h3 class="title is-3">Real-time Segmentation and Perception Mapping</h2>
-    <div class="content has-text-justified">
-      <p>
-        We employ the <strong>Segment Anything Model 2 (SAM2)</strong> to perform real-time segmentation of rheological materials from RGB-D inputs.
-        To build a consistent spatial understanding, <strong>multi-view RGB-D frames</strong> are fused into a globally aligned segmented point cloud.
-        This point cloud is then encoded into two representations:
-      </p>
-      <ul>
-        <li><strong>Pixel map</strong>: generated via orthographic projection of the segmented point cloud onto the vertical plane.</li>
-        <li><strong>Voxel map</strong>: constructed by encoding spatial occupancy on a latitude-longitude grid with normalized distances.</li>
-      </ul>
-      <p>
-        These representations serve as structured perceptual inputs for downstream robotic manipulation policies.
-      </p>
-    </div>
-    <div class="content has-text-centered">
-      <video id="replay-video"
-              controls
-              muted
-              preload
-              playsinline
-              width="75%">
-        <source src="./static/videos/perception.mp4"
-                type="video/mp4">
-      </video>
-    </div>
-    <!--/ Re-rendering. -->
-
     <!-- Re-rendering. -->
     <h3 class="title is-3">Multi-Robot Collaboration: Collection</h2>
       <div class="content has-text-justified">
@@ -399,19 +377,17 @@
                 muted
                 preload
                 playsinline
-                width="75%">
+                width="100%">
           <source src="./static/videos/multi-agent.mp4"
                   type="video/mp4">
         </video>
       </div>
       <!--/ Re-rendering. -->
-
-
+    
     <!-- Concurrent Work. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Related Links</h2>
-
         <div class="content has-text-justified">
           <!-- <p>
             There's a lot of excellent work that was introduced around the same time as ours.
