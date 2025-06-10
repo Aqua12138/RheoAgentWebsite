@@ -120,7 +120,7 @@
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>The School of Science and Engineering, The Chinese University of Hong Kong, Shenzhen</span>
             <span class="author-block"><sup>2</sup>Shenzhen Institute of Artificial Intelligence and Robotics for Society</span>
-            <span class="author-block"><sup>3</sup>Shenzhen City Joint Laboratory of Autonomous Unmanned Systems and Intelligent Manipulation</span>
+            <span class="author-block"><sup>3</sup>The College of Mechatronics and Control Engineering, Shenzhen University, Shenzhen</span>
             <span class="author-block"><sup>4</sup>Beijing Institute for General Artificial Intelligence</span>
           </div>
 
@@ -228,7 +228,7 @@
     <!-- Related work. -->
     <div class="columns is-centered has-text-justified">
       <div class="column is-four-fifths">
-        <h2 class="title is-4">How does it work?</h3>
+        <h2 class="title is-3">How does it work?</h2>
         <img id="teaser" src="./static/images/method_nmi.png" alt="Schematic image" style="width: 100%; height: auto;">
         <div class="content has-text-centered">
           <p>
@@ -240,68 +240,93 @@
     <!--/ Related work. -->
 </section>
 
-
 <section class="section">
   <div class="container is-max-desktop">
     <!-- Task Selection Panel -->
-    <h3 class="title is-3">Real-time Segmentation and Perception Mapping</h2>
-    <div class="columns is-centered">
-      <div class="column is-one-third">
-        <div class="field">
-          <label class="label">Task</label>
-          <div class="control">
-            <div class="select is-fullwidth">
-              <select id="task-select">
-                <option>Pour task</option>
-                <option>Gather task</option>
-              </select>
+    <div class="columns is-vcentered">
+      <div class="column is-half">
+        <h2 class="title is-3">Fine-tuned Model Evaluation</h2>
+      </div>
+    
+      <div class="column is-half">
+        <div class="columns is-mobile">
+          <div class="column">
+            <div class="field">
+              <label class="label">Task</label>
+              <div class="control">
+                <div class="select is-fullwidth">
+                  <select id="task-select">
+                    <option>Pour task</option>
+                    <option>Gather task</option>
+                  </select>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div class="column is-one-third">
-        <div class="field">
-          <label class="label">Material</label>
-          <div class="control">
-            <div class="select is-fullwidth">
-              <select id="material-select">
-                <option>Inviscid fluid</option>
-                <option>Viscous fluid</option>
-                <option>Elasto-plastic fluid</option>
-              </select>
+    
+          <div class="column">
+            <div class="field">
+              <label class="label">Material</label>
+              <div class="control">
+                <div class="select is-fullwidth">
+                  <select id="material-select">
+                    <option>Inviscid fluid</option>
+                    <option>Viscous fluid</option>
+                    <option>Elasto-plastic fluid</option>
+                  </select>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="column is-one-third">
-        <div class="field">
-          <label class="label">Status</label>
-          <div class="buttons has-addons is-centered">
-            <button class="button is-black is-selected">Success</button>
-            <button class="button">Fail</button>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Video Display Panel -->
-    <div class="columns is-centered">
-      <div class="column is-half has-text-centered">
-        <video id="result-video" controls muted autoplay playsinline width="100%">
-          <source src="" type="video/mp4" id="video-source">
+    <!-- Success or Fail Video Display -->
+    <div class="columns">
+      <div class="column has-text-centered">
+        <p class="subtitle is-5">Success</p>
+        <video id="video-success" controls muted autoplay playsinline width="100%" style="background-color: #000;">
+          <source id="source-success" src="" type="video/mp4">
           Your browser does not support the video tag.
         </video>
-        <p id="video-fallback" style="color: red; margin-top: 1em; display: none;">
-          No video available for this combination.
-        </p>
+        <p id="fallback-success" style="color: red; display: none;">No success video for this combination.</p>
+      </div>
+
+      <div class="column has-text-centered">
+        <p class="subtitle is-5">Fail</p>
+        <video id="video-fail" controls muted autoplay playsinline width="100%" style="background-color: #000;">
+          <source id="source-fail" src="" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <p id="fallback-fail" style="color: red; display: none;">No fail video for this combination.</p>
       </div>
     </div>
 
+    <img id="teaser" src="./static/images/real_exp2.png" alt="Schematic image" style="width: 100%; height: auto;">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Real-world performance of the pre-trained model (trained on granular materials).</strong> <strong>a</strong>, Real-world performance of the pre-trained model (trained on granular materials). <strong>b</strong>, Sequential frames illustrating a real-world gathering scenario.
+      </p>
+    </div>
 
-    <!-- Re-rendering. -->
+    <!-- Segmentation. -->
+    <hr style="border: none; border-top: 1px solid #ccc; margin: 1rem 0;">
     <h3 class="title is-3">Real-time Segmentation and Perception Mapping</h2>
+
+    <img id="teaser" src="./static/images/real_visual.png" alt="Schematic image" style="width: 100%; height: auto;">
+    <div class="content has-text-justified">
+      <p>
+        <strong>Visual encoding pipeline for real-world rheological perception.</strong>
+        <strong>a</strong>, Schematic of the real-world perception system. A dual-camera configuration mitigates point cloud occlusion. Green and blue arrows denote the viewing directions for generating voxel and pixel maps, respectively.
+        <strong>b</strong>, <a href="https://ai.meta.com/sam2/" target="_blank">SAM2</a>-based segmentation of kinetic sand from dual perspectives.
+        <strong>c</strong>, Agent-centric viewer constructed from multi-view fused point clouds. The blue spherical region denotes the field of view, where yellow and purple indicate closer and farther regions.
+        <strong>d</strong>, Top-down view of the fused point cloud, used for constructing orthographic projections.
+        <strong>e</strong>, Equirectangular projection of the spherical view forming the voxel map, based on latitude–longitude grid discretization with per-cell nearest distance encoding.
+        <strong>f</strong>, Rasterized orthographic pixel map derived from the top-down projection of the segmented point cloud.
+      </p>
+    </div>
+  
     <div class="content has-text-justified">
       <p>
         We employ the <strong>Segment Anything Model 2 (SAM2)</strong> to perform real-time segmentation of rheological materials from RGB-D inputs.
@@ -322,12 +347,12 @@
               muted
               preload
               playsinline
-              width="75%">
+              width="100%">
         <source src="./static/videos/perception.mp4"
                 type="video/mp4">
       </video>
     </div>
-    <!--/ Re-rendering. -->
+    <!--/ Segmentation. -->
     <div class="columns is-centered">
 
       <!-- Pour. -->
