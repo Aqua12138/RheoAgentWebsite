@@ -165,8 +165,8 @@ body {
 
 .gif-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 4px; /* 控制图片间距，可设为 0 */
+  grid-template-columns: repeat(12, 1fr);
+  gap: 0px; /* 控制图片间距，可设为 0 */
 }
 
 .gif-grid img {
