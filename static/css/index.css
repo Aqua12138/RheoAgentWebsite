@@ -163,15 +163,33 @@ body {
   font-weight: bold;
 }
 
-.gif-grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 0px; /* 控制图片间距，可设为 0 */
+.gif-group-box {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0.25rem;
+  margin-bottom: 0rem;
+  background-color: #fafafa;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-.gif-grid img {
+.gif-group-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 0.5rem;
+  text-align: left;
+  padding-left: 0.2rem;
+}
+
+.gif-grid-6x4 {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1px;
+}
+.gif-grid-6x4 img {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 4px; /* 可选：圆角边 */
+  border: 1px solid #ddd;
+  border-radius: 1px;
 }
