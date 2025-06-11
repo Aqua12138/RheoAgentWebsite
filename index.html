@@ -22,6 +22,57 @@
     gtag('config', 'G-PYVRSFMDRL');
   </script>
 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const images = [
+  {
+    src: "./static/images/schematic1.jpeg",
+    caption: `
+      <div class="content has-text-justified">
+        <p><strong>a</strong>, The large vision-language model (LVLM) classifies the material as granular or fluid.
+        <strong>b</strong>, The robot successfully pours granular material using policy π<sub>A</sub>.
+        <strong>c</strong>, A failure case occurs when applying π<sub>A</sub> to a fluid material, resulting in spillage due to viscous fingering.
+        <strong>d</strong>, Force-based feedback is used to estimate the fluid's density and viscosity.
+        <strong>e</strong>, Policy π<sub>A</sub> is fine-tuned into π<sub>A</sub><sup>&prime;</sup> via parallel training to adapt to the fluid’s rheology.
+        <strong>f</strong>, The robot pours the fluid successfully using the adapted policy π<sub>A</sub><sup>&prime;</sup>.</p>
+      </div>`
+  },
+  {
+    src: "./static/images/schematic2.jpeg",
+    caption: `
+      <div class="content has-text-justified">
+        <p><strong>g</strong>, RheoAgent demonstrates material-adaptive manipulation across granular materials, inviscid fluids, viscous fluids, and elasto-plastic fluids in a kitchen environment.</p>
+      </div>`
+  }
+];
+
+    let currentIndex = 0;
+    const teaserImage = document.getElementById("teaser-image");
+    const captionBox = document.getElementById("caption-box");
+    const prevBtn = document.getElementById("prev-btn");
+    const nextBtn = document.getElementById("next-btn");
+
+    function updateContent(index) {
+      teaserImage.src = images[index].src;
+      captionBox.innerHTML = images[index].caption;
+    }
+
+    prevBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      updateContent(currentIndex);
+    });
+
+    nextBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      updateContent(currentIndex);
+    });
+
+    // 初始加载
+    updateContent(currentIndex);
+  });
+</script>
+
+
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
 
@@ -186,15 +237,63 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <!-- 修复图片标签 -->
-      <img id="teaser" src="./static/images/schematic.png" alt="Schematic image" style="width: 100%; height: auto;">
-      
-      <h2 class="subtitle has-text-justified">
-        <p class="bold-text" style="display: inline;">Fig. 1: Capabilities of the RheoAgent framework.</p> RheoAgent is an advanced hybrid framework integrating LVLMs and RL for effective manipulation of cross-rheological materials. By leveraging multi-modal inputs (visual and haptic), it classifies unknown rheological materials and incorporates them into a differentiable environment, optimizing reinforcement learning via differentiable RL (DRL) to adapt dynamically to rheological heterogeneity. Panel (a-f) depicts a robotic arm executing a pouring task with rheological materials: <strong>a</strong>, LVLM identifies rheological material types (granular and fluid). <strong>b</strong>, Successfully pouring granular materials using a pre-trained policy. <strong>c</strong>, An imagined scenario of pouring failure for fluid materials if using the same pre-trained policy. <strong>d</strong>, Shaking the fluid container with force feedback to measure the density and viscosity range of fluid materials. <strong>e</strong>, Fine-tuning the pre-trained policy based on identified fluid parameters. <strong>f</strong>, Successfully pouring fluid materials using the fine-tuned policy. <strong>g</strong>, Demonstrates the robot manipulating diverse rheological materials in a kitchen environment, including granular substances, viscous fluids, inviscous fluids, and elastoplastic materials.
-      </h2>
+
+      <!-- ✅ 外层边框容器 + 让其成为相对定位参考点 -->
+      <div class="box" style="position: relative; border: 1px solid #ccc; border-radius: 8px; padding: 1rem;">
+
+        <!-- 图片容器（不再负责定位按钮） -->
+        <div style="text-align: center;">
+          <img id="teaser-image" src="" alt="Schematic image" style="width: 100%; height: auto; border-radius: 8px;">
+        </div>
+
+        <!-- 左箭头 -->
+        <button id="prev-btn" style="
+          position: absolute;
+          top: 50%;
+          left: -2.5rem;
+          transform: translateY(-50%);
+          background: white;
+          border: 2px solid #ccc;
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          cursor: pointer;
+          box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+        ">
+          &#10094;
+        </button>
+
+        <!-- 右箭头 -->
+        <button id="next-btn" style="
+          position: absolute;
+          top: 50%;
+          right: -2.5rem;
+          transform: translateY(-50%);
+          background: white;
+          border: 2px solid #ccc;
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          cursor: pointer;
+          box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+        ">
+          &#10095;
+        </button>
+
+        <!-- 图片说明文字 -->
+        <div id="caption-box" class="content has-text-justified" style="margin-top: 1rem;">
+          <!-- JS 注入 -->
+        </div>
+
+      </div> <!-- ✅ box 结束 -->
+
     </div>
   </div>
 </section>
+
+
+
+<hr>
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -210,42 +309,53 @@
       </div>
     </div>
     <!--/ Abstract. -->
-
-    <!-- Related work. -->
+    <!-- Video. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Related work</h2>
-        <img id="teaser" src="./static/images/related_work_real_finial.png" alt="Schematic image" style="width: 100%; height: auto;">
-        <div class="content has-text-centered">
+        <h2 class="title is-3">Video</h2>
+        <div class="content has-text-justified">
           <p>
-            Overview of robotic system manipulation of rheological materials.
+            
           </p>
         </div>
       </div>
     </div>
-    <!--/ Related work. -->
-
-    <!-- Related work. -->
-    <div class="columns is-centered has-text-justified">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">How does it work?</h2>
-        <img id="teaser" src="./static/images/method_nmi.png" alt="Schematic image" style="width: 100%; height: auto;">
-        <div class="content has-text-centered">
-          <p>
-            Overview of robotic system manipulation of rheological materials.
-          </p>
-        </div>
-      </div>
-    </div>
-    <!--/ Related work. -->
+    <!--/ Video. -->
 </section>
-
+<hr>
 <section class="section">
   <div class="container is-max-desktop">
     <!-- Task Selection Panel -->
     <div class="columns is-vcentered">
       <div class="column is-half">
         <h2 class="title is-3">Fine-tuned Model Evaluation</h2>
+      </div>
+      
+    </div>
+
+    <!-- ✅ 新增说明段落，放在上方整行布局之后 -->
+    <div class="columns">
+      <div class="column is-full">
+        <div class="content">
+          <p>
+            We evaluated the model in real-world settings by directly deploying the <strong>pre-trained policy</strong>, 
+            which was originally trained on <strong>simplified rheological materials</strong> using a 
+            <strong>particle-based representation</strong>. This representation captures two fundamental 
+            characteristics of rheological materials—<strong>fluidity</strong> and <strong>deformability</strong>. 
+            <strong>Fine-tuning further introduced fluid-specific representations</strong> to better capture the 
+            <strong>task-relevant dynamics</strong> of particular rheological classes. 
+            <strong>The comparison below illustrates the behavioral differences before and after fine-tuning</strong>, 
+            showcasing both <strong>successful and failed executions</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Task Selection Panel -->
+    <div class="columns is-vcentered">
+      <div class="column is-half">
+        <h3 class="title is-5" style="margin-bottom: 0.5rem;">Comparison between Successful and Failed Executions</h3>
       </div>
     
       <div class="column is-half">
@@ -279,7 +389,9 @@
             </div>
           </div>
         </div>
+        
       </div>
+      
     </div>
 
     <!-- Success or Fail Video Display -->
@@ -291,8 +403,11 @@
           Your browser does not support the video tag.
         </video>
         <p id="fallback-success" style="color: red; display: none;">No success video for this combination.</p>
+    
+        <!-- ✅ 成功视频的 caption 放在这里 -->
+        <p id="caption-success" class="content is-small" style="margin-top: 0.5rem; text-align: left;"></p>
       </div>
-
+    
       <div class="column has-text-centered">
         <p class="subtitle is-5">Fail</p>
         <video id="video-fail" controls muted autoplay playsinline width="100%" style="background-color: #000;">
@@ -300,18 +415,53 @@
           Your browser does not support the video tag.
         </video>
         <p id="fallback-fail" style="color: red; display: none;">No fail video for this combination.</p>
+    
+        <!-- ✅ 失败视频的 caption 放在这里 -->
+        <p id="caption-fail" class="content is-small" style="margin-top: 0.5rem; text-align: left;"></p>
       </div>
     </div>
 
-    <img id="teaser" src="./static/images/real_exp2.png" alt="Schematic image" style="width: 100%; height: auto;">
-    <div class="content has-text-centered">
-      <p>
-        <strong>Real-world performance of the pre-trained model (trained on granular materials).</strong> <strong>a</strong>, Real-world performance of the pre-trained model (trained on granular materials). <strong>b</strong>, Sequential frames illustrating a real-world gathering scenario.
-      </p>
+    <!-- gif -->
+    <div class="gif-grid">
+      <!-- 假设你的gif位于 ./static/videos/demo-folder/*.gif -->
+      <!-- 自动列出24张图片 -->
+      <img src="./static/videos/GIF/6865-1.gif" alt="gif">
+      <img src="./static/videos/GIF/6869-1.gif" alt="gif">
+      <img src="./static/videos/GIF/6873-1.gif" alt="gif">
+      <img src="./static/videos/GIF/6876-1.gif" alt="gif">
+      <img src="./static/videos/GIF/6879-1.gif" alt="gif">
+      <img src="./static/videos/GIF/6886-1.gif" alt="gif">
+      <img src="./static/videos/GIF/6892-1.gif" alt="gif">
+      <img src="./static/videos/GIF/6895-1.gif" alt="gif">
+      <img src="./static/videos/GIF/6898-1.gif" alt="gif">
+      <img src="./static/videos/GIF/6901-1.gif" alt="gif">
+      <img src="./static/videos/GIF/6919-1.gif" alt="gif">
+      <img src="./static/videos/GIF/6933-1.gif" alt="gif">
+
+      <!-- <img src="./static/videos/demo-folder/023.gif" alt="gif 23"> -->
+    </div>
+    
+
+    <!-- 外部包裹容器，添加边框和圆角 -->
+    <div class="box" style="border: 1px solid #ccc; border-radius: 8px; padding: 1rem;">
+
+      <!-- 图片本身 -->
+      <img id="teaser" src="./static/images/real_exp2.png" alt="Schematic image" style="width: 100%; height: auto;">
+
+      <!-- caption 内容 -->
+      <div class="content has-text-justified" style="margin-top: 1rem;">
+        <p>
+          <strong>Real-world performance of the pre-trained model (trained on granular materials).</strong>
+          <strong>a</strong>, Real-world performance of the pre-trained model (trained on granular materials).
+          <strong>b</strong>, Sequential frames illustrating a real-world gathering scenario.
+        </p>
+      </div>
+
     </div>
 
     <!-- Segmentation. -->
-    <hr style="border: none; border-top: 1px solid #ccc; margin: 1rem 0;">
+    <!-- <hr style="border: none; border-top: 1px solid #ccc; margin: 1rem 0;"> -->
+    <hr>
     <h3 class="title is-3">Real-time Segmentation and Perception Mapping</h2>
 
     <img id="teaser" src="./static/images/real_visual.png" alt="Schematic image" style="width: 100%; height: auto;">
@@ -483,6 +633,38 @@
     </div>
   </div>
 </footer>
+
+<hr>
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Related work. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Related work</h2>
+        <img id="teaser" src="./static/images/related_work_real_finial.png" alt="Schematic image" style="width: 100%; height: auto;">
+        <div class="content has-text-centered">
+          <p>
+            Overview of robotic system manipulation of rheological materials.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Related work. -->
+
+    <!-- Method. -->
+    <div class="columns is-centered has-text-justified">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">How does it work?</h2>
+        <img id="teaser" src="./static/images/method_nmi.png" alt="Schematic image" style="width: 100%; height: auto;">
+        <div class="content has-text-centered">
+          <p>
+            Overview of robotic system manipulation of rheological materials.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Method. -->
+</section>
 
 </body>
 </html>
