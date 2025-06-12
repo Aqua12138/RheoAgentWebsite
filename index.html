@@ -138,26 +138,29 @@
           <h1 class="title is-1 publication-title">RheoAgent: A Cross-Rheological Material Handling Robotic Manipulation System via Hierarchical Decision-Making Framework</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://keunhong.com">Haixu Zhang</a><sup>1,2,3</sup>,</span>
+              <a >Haixu Zhang</a><sup>1,2,3</sup>,</span>
             <span class="author-block">
-              <a href="https://utkarshsinha.com">Bo Zhang</a><sup>3</sup>,</span>
+              <a >Bo Zhang</a><sup>3</sup>,</span>
             <span class="author-block">
-              <a href="https://jonbarron.info">Danyang Zhang</a><sup>1,2</sup>,
+              <a >Danyang Zhang</a><sup>1,2</sup>,
             </span>
             <span class="author-block">
-              <a href="http://sofienbouaziz.com">Weiqiang Lai</a><sup>1,2</sup>,
+              <a >Xi Chen</a><sup>4</sup>,
             </span>
             <span class="author-block">
-              <a href="https://www.danbgoldman.com">Xi Chen</a><sup>4</sup>,
+              <a >Weiqiang Lai</a><sup>1,2</sup>,
             </span>
             <span class="author-block">
-              <a href="https://homes.cs.washington.edu/~seitz/">Tin Lun Lam</a><sup>1</sup>,
+              <a >Chi Zhang</a><sup>5</sup>,
             </span>
             <span class="author-block">
-              <a href="http://www.ricardomartinbrualla.com">Hu Huang</a><sup>1,2</sup>
+              <a >Tin Lun Lam</a><sup>1,2</sup>,
             </span>
             <span class="author-block">
-              <a href="http://www.ricardomartinbrualla.com">Yuan Gao></a><sup>1,2</sup>
+              <a >Hu Huang</a><sup>6*</sup>
+            </span>
+            <span class="author-block">
+              <a >Yuan Gao</a><sup>1,2*</sup>
             </span>
           </div>
 
@@ -166,22 +169,14 @@
             <span class="author-block"><sup>2</sup>Shenzhen Institute of Artificial Intelligence and Robotics for Society</span>
             <span class="author-block"><sup>3</sup>The College of Mechatronics and Control Engineering, Shenzhen University, Shenzhen</span>
             <span class="author-block"><sup>4</sup>Beijing Institute for General Artificial Intelligence</span>
+            <span class="author-block"><sup>5</sup>The School of Flexible Electronics, Sun Yat-Sen University, Shenzhen</span>
+            <span class="author-block"><sup>6</sup>The School of Computer Science, University of Science and Technology of China, Shenzhen</span>
           </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
-              <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2011.12948111"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a href="https://arxiv.org/abs/2011.12948111"
+                <a href=""
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -189,19 +184,10 @@
                   <span>arXiv</span>
                 </a>
               </span>
-              <!-- Video Link. -->
-              <span class="link-block">
-                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA111"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
-                </a>
-              </span>
+   
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/google/nerfies111"
+                <a href="https://github.com/Aqua12138/RheoAgent"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -209,15 +195,6 @@
                   <span>Code</span>
                   </a>
               </span>
-              <!-- Dataset Link. -->
-              <span class="link-block">
-                <a href="https://github.com/google/nerfies/releases/tag/0.1111"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>Data</span>
-                  </a>
             </div>
 
           </div>
@@ -270,15 +247,114 @@
       </div>
 
     </div>
+    <hr>
   </div>
 </section>
 
 
 
-<hr>
+
 
 <section class="section">
   <div class="container is-max-desktop">
+
+    <!-- Title -->
+    <h3 class="title is-3">Real-time Segmentation and Perception Mapping</h3>
+    <div class="content has-text-justified">
+      <p>
+        We employ the <strong>Segment Anything Model 2 (SAM2)</strong> to perform real-time segmentation of rheological materials from RGB-D inputs.
+        To build a consistent spatial understanding, <strong>multi-view RGB-D frames</strong> are fused into a globally aligned segmented point cloud.
+        This point cloud is then encoded into two representations:
+      </p>
+      <ul>
+        <li><strong>Pixel map</strong>: generated via orthographic projection of the segmented point cloud onto the vertical plane.</li>
+        <li><strong>Voxel map</strong>: constructed by encoding spatial occupancy on a latitude-longitude grid with normalized distances.</li>
+      </ul>
+      <p>
+        These representations serve as structured perceptual inputs for downstream robotic manipulation policies.
+      </p>
+    </div>
+
+    <!-- Image + Caption -->
+    <div class="box" style="padding: 1rem;">
+      <img id="teaser" src="./static/images/real_visual.png" alt="Schematic image" style="width: 100%; height: auto;">
+      <div class="content has-text-justified">
+        <p>
+          <strong>Visual encoding pipeline for real-world rheological perception.</strong>
+          <strong>a</strong>, Schematic of the real-world perception system...
+        </p>
+      </div>
+    </div>
+
+    <!-- Video Demo -->
+    <div class="content" style="margin-bottom: 2rem;">
+      <h3 class="title is-5">Real-Time Perception System Demo</h3>
+      <p style="font-size: 0.95rem; line-height: 1.6;">
+        <span style="color: red; font-weight: 600;">Red</span> highlights the <strong>target region</strong>,
+        <span style="color: blue; font-weight: 600;">blue</span> indicates the <strong>rheological material</strong>,
+        and <span style="color: green; font-weight: 600;">green</span> corresponds to the <strong>robotic agent</strong>.
+        The segmentation is performed in real time at over <strong>10 Hz</strong>,
+        with input from <strong>two RGB-D cameras</strong> fixed in the world coordinate frame.
+      </p>
+      <video controls muted preload playsinline style="width: 100%; height: auto; border-radius: 6px;">
+        <source src="./static/videos/perception.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <!-- Disturbance Tasks -->
+    <h3 class="title is-5">External Disturbance Experiments: Real-Time Robustness Evaluation of SAM2-Based Perception</h3>
+    <div class="columns is-multiline">
+
+      <!-- Pouring Task -->
+      <div class="column is-half">
+        <div class="content">
+          <h4 class="title is-6">Pouring Task</h4>
+          <video controls muted playsinline loop style="width: 100%; border-radius: 6px;">
+            <source src="./static/videos/external_pour.mp4" type="video/mp4">
+          </video>
+          <p style="font-size: 0.95rem; line-height: 1.6;">
+            The robot performs continuous pouring while a human introduces spatial disturbances:
+            <br>
+            ① <strong>00:06</strong> — The human shifts the target cup to a new position.
+            <br>
+            ② <strong>00:09</strong> — The cup is moved again to another location.
+            <br>
+            The system maintains task stability and completes pouring through real-time SAM2-guided adaptation.
+          </p>
+        </div>
+      </div>
+
+      <!-- Gathering Task -->
+      <div class="column is-half">
+        <div class="content">
+          <h4 class="title is-6">Gathering Task</h4>
+          <video controls muted playsinline loop style="width: 100%; border-radius: 6px;">
+            <source src="./static/videos/external_gather.mp4" type="video/mp4">
+          </video>
+          <p style="font-size: 0.95rem; line-height: 1.6;">
+            The robot continues gathering while a human introduces material-level disturbances:
+            <br>
+            ① <strong>00:03</strong> — The human adds new rheological material to the workspace.
+            <br>
+            ② <strong>00:10</strong> — The collected material is relocated outside the designated region.
+            <br>
+            The system maintains task progress and completes gathering through real-time SAM2-guided adaptation.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Evaluation Panel (Additional content omitted here for brevity) -->
+    <hr>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
     <!-- Task Selection Panel -->
     <div class="columns is-vcentered">
       <div class="column is-half">
@@ -365,31 +441,32 @@
     </div>
 
     <!-- Success or Fail Video Display -->
-    <div class="columns">
+    <div class="columns is-vcentered" style="margin-top: 1.5rem;">
       <div class="column has-text-centered">
-        <p class="subtitle is-5">Success</p>
-        <video id="video-success" controls muted autoplay playsinline width="100%" style="background-color: #000;">
+        <h3 class="title is-5" style="margin-bottom: 0.75rem;">Success</h3>
+        <video id="video-success" controls muted autoplay playsinline style="width: 100%; height: auto; border-radius: 6px; background-color: #000;">
           <source id="source-success" src="" type="video/mp4">
           Your browser does not support the video tag.
         </video>
-        <p id="fallback-success" style="color: red; display: none;">No success video for this combination.</p>
-    
-        <!-- ✅ 成功视频的 caption 放在这里 -->
-        <p id="caption-success" class="content is-small" style="margin-top: 0.5rem; text-align: left;"></p>
+        <p id="fallback-success" style="color: red; font-size: 0.9rem; margin-top: 0.5rem; display: none;">
+          No success video for this combination.
+        </p>
+        <p id="caption-success" class="content" style="font-size: 0.95rem; line-height: 1.6; text-align: left; margin-top: 0.5rem;"></p>
       </div>
-    
+
       <div class="column has-text-centered">
-        <p class="subtitle is-5">Fail</p>
-        <video id="video-fail" controls muted autoplay playsinline width="100%" style="background-color: #000;">
+        <h3 class="title is-5" style="margin-bottom: 0.75rem;">Fail</h3>
+        <video id="video-fail" controls muted autoplay playsinline style="width: 100%; height: auto; border-radius: 6px; background-color: #000;">
           <source id="source-fail" src="" type="video/mp4">
           Your browser does not support the video tag.
         </video>
-        <p id="fallback-fail" style="color: red; display: none;">No fail video for this combination.</p>
-    
-        <!-- ✅ 失败视频的 caption 放在这里 -->
-        <p id="caption-fail" class="content is-small" style="margin-top: 0.5rem; text-align: left;"></p>
+        <p id="fallback-fail" style="color: red; font-size: 0.9rem; margin-top: 0.5rem; display: none;">
+          No fail video for this combination.
+        </p>
+        <p id="caption-fail" class="content" style="font-size: 0.95rem; line-height: 1.6; text-align: left; margin-top: 0.5rem;"></p>
       </div>
     </div>
+
 
     <!-- gif -->
     <!-- <div class="content">
@@ -608,8 +685,6 @@
 
     </div>
 
-
-
     <div class="gif-grid-8xN">
       <img src="./static/videos/GIF-collection-granular/4771-1.gif" alt="gif">
       <img src="./static/videos/GIF-collection-granular/4773-1.gif" alt="gif">
@@ -638,145 +713,91 @@
       <img src="./static/videos/GIF-collection-granular/4827-1.gif" alt="gif">
       <img src="./static/videos/GIF-collection-granular/4830-1.gif" alt="gif">
     </div>
-    
-    <!-- Segmentation. -->
+
+</section>
+
+
+
+<!-- Multi-Robot Collaboration Section -->
+<section class="section">
+  <div class="container is-max-desktop">
     <hr>
-    <h3 class="title is-3">Real-time Segmentation and Perception Mapping</h2>
-    <div class="content has-text-justified">
-      <p>
-        We employ the <strong>Segment Anything Model 2 (SAM2)</strong> to perform real-time segmentation of rheological materials from RGB-D inputs.
-        To build a consistent spatial understanding, <strong>multi-view RGB-D frames</strong> are fused into a globally aligned segmented point cloud.
-        This point cloud is then encoded into two representations:
-      </p>
-      <ul>
-        <li><strong>Pixel map</strong>: generated via orthographic projection of the segmented point cloud onto the vertical plane.</li>
-        <li><strong>Voxel map</strong>: constructed by encoding spatial occupancy on a latitude-longitude grid with normalized distances.</li>
-      </ul>
-      <p>
-        These representations serve as structured perceptual inputs for downstream robotic manipulation policies.
-      </p>
-    </div>
-    
-    
-    <!-- 外部包裹容器，添加边框和圆角 -->
-    <div class="box" style="border: 1px solid #ccc; border-radius: 8px; padding: 1rem;">
-      <img id="teaser" src="./static/images/real_visual.png" alt="Schematic image" style="width: 100%; height: auto;">
-        <div class="content has-text-justified">
-          <p>
-            <strong>Visual encoding pipeline for real-world rheological perception.</strong>
-            <strong>a</strong>, Schematic of the real-world perception system. A dual-camera configuration mitigates point cloud occlusion. Green and blue arrows denote the viewing directions for generating voxel and pixel maps, respectively.
-            <strong>b</strong>, <a href="https://ai.meta.com/sam2/" target="_blank">SAM2</a>-based segmentation of kinetic sand from dual perspectives.
-            <strong>c</strong>, Agent-centric viewer constructed from multi-view fused point clouds. The blue spherical region denotes the field of view, where yellow and purple indicate closer and farther regions.
-            <strong>d</strong>, Top-down view of the fused point cloud, used for constructing orthographic projections.
-            <strong>e</strong>, Equirectangular projection of the spherical view forming the voxel map, based on latitude–longitude grid discretization with per-cell nearest distance encoding.
-            <strong>f</strong>, Rasterized orthographic pixel map derived from the top-down projection of the segmented point cloud.
-          </p>
-        </div>
+    <div class="column is-full">
+
+      <h2 class="title is-3" style="text-align: left; margin-bottom: 0.5rem;">Multi-Robot Collaboration: Collection Task</h2>
+ 
+      <div class="content has-text-justified" style="font-size: 0.95rem; line-height: 1.6;">
+        <p>
+          Two heterogeneous robots collaborate in a material gathering task. The dual-arm <strong>Elephant Mercury B1</strong> robot performs planar pushing using a tool-attached plate, while the <strong>UR5</strong> arm simultaneously collects the material using a cup-shaped gripper. This setup demonstrates cross-embodiment task decomposition and cooperation under shared perception.
+        </p>
       </div>
     </div>
-  
-    
-    <div class="content has-text-centered">
-      <video id="replay-video"
-              controls
-              muted
-              preload
-              playsinline
-              width="100%">
-        <source src="./static/videos/perception.mp4"
-                type="video/mp4">
+
+    <div class="column is-full">
+      <video controls muted autoplay playsinline style="width: 100%; height: auto; border-radius: 6px; background-color: #000;">
+        <source src="./static/videos/multi-agent.mp4" type="video/mp4">
+        Your browser does not support the video tag.
       </video>
     </div>
-    <!--/ Appendix. -->
+    <hr> 
+  </div> 
+
+</section>
+
+
+
+<section>
+  <div class="container is-max-desktop">
+
+    <!-- Related Work -->
+    <div class="column is-full">
+      <h2 class="title is-3" style="text-align: left; margin-bottom: 0.5rem;">Related Work</h2>
+      <div class="content has-text-justified" style="font-size: 0.95rem; margin-bottom: 1rem;">
+        <p>
+          Prior research on rheological material manipulation has followed two major directions:
+          <strong>Towards Material Generalization</strong> and <strong>Towards Higher Automation</strong>.
+          As illustrated in the figure, most existing works cluster in the region of
+          <strong>Single-Purpose Material Handling</strong>, where systems are tailored to specific materials and tasks.
+          Brown and black markers indicate <strong>simulation-only</strong> and <strong>real-world-validated</strong> approaches, respectively.
+          Dashed arrows highlight emerging trends toward broader material coverage and intelligent, adaptive systems.
+          <strong>Our method advances both directions</strong> by enabling real-time, generalizable manipulation across granular, fluid, and elasto-plastic materials.
+        </p>
+      </div>
+    </div>
+    <div class="box" style="padding: 0.5rem; border-radius: 6px;">
+      <img id="teaser" src="./static/images/related_work_real_finial.png" alt="Schematic image" style="width: 100%; height: auto;">
+    </div>
+    <div class="content has-text-centered" style="margin-top: 0.5rem;">
+      <p style="font-size: 0.95rem;">Overview of robotic system manipulation of rheological materials.</p>
+    </div>
+    <!--/ Related Work -->
 
     <hr>
-    <div class="columns is-centered">
-
-      <!-- Pour. -->
-      <div class="column">
-        <div class="content">
-          <h2 class="title is-3">Pouring Under Human Disturbance</h2>
-          <p>
-            The robot continues pouring while a human introduces interference by shifting the target cup.
-          </p>
-          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/external_pour.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-      <!--/ Pour. -->
-
-      <!-- Gather. -->
-      <div class="column">
-        <h2 class="title is-3">Gathering Under Human Disturbance</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <p>
-              The robot continues collecting while a human introduces interference by adding material during and after the task.
-            </p>
-            <video id="matting-video" controls playsinline height="100%">
-              <source src="./static/videos/external_gather.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-
-        </div>
-      </div>
-    </div>
-    <!--/ Gather. -->
-
-    <!-- Re-rendering. -->
-    <h3 class="title is-3">Multi-Robot Collaboration: Collection</h2>
-      <div class="content has-text-justified">
+    <!-- Method -->
+    <div class="column is-full" style="margin-top: 2rem;">
+      <h2 class="title is-3" style="text-align: left; margin-bottom: 0.5rem;">How Does It Work?</h2>
+      <div class="content has-text-justified" style="font-size: 0.95rem; margin-bottom: 1rem;">
         <p>
-          Two robots cooperate in a gathering task: the dual-arm Elephant Mercury B1 pushes material with a plate, while the UR5 collects it using a cup.
+          Our framework, <strong>RheoAgent</strong>, integrates hierarchical reinforcement learning with differentiable simulation and dual-view visual encoding.
+      It begins with model-free pre-training in a Unity environment using <strong>egocentric voxel maps</strong>,
+      <strong>allocentric pixel maps</strong>, and <strong>proprioceptive vectors</strong> as inputs.
+      The policy is guided by a reward function combining <strong>distribution distance</strong> and <strong>density discrepancy</strong> terms.
+      Fine-tuning is performed in <strong>FluidLab</strong> using differentiable reward gradients for sample-efficient optimization.
+      In the real world, <strong>RGB-D data</strong> from depth sensors are segmented by <strong>SAM2</strong>, then encoded into voxel and pixel maps for policy deployment.
+      This pipeline enables robust generalization across materials and tasks by aligning visual representations between simulation and reality.
         </p>
       </div>
-      <div class="content has-text-centered">
-        <video id="replay-video"
-                controls
-                muted
-                preload
-                playsinline
-                width="100%">
-          <source src="./static/videos/multi-agent.mp4"
-                  type="video/mp4">
-        </video>
+      <div class="box" style="padding: 0.5rem; border-radius: 6px;">
+        <img id="teaser" src="./static/images/method_nmi.png" alt="Schematic image" style="width: 100%; height: auto;">
       </div>
-      <!--/ Re-rendering. -->
-    
+      <div class="content has-text-centered" style="margin-top: 0.5rem;">
+        <p style="font-size: 0.95rem;">System overview of perception, policy learning, and execution pipeline.</p>
+      </div>
+    </div>
+    <!--/ Method -->
+  </div>
 </section>
 
-<div class="container is-max-desktop">
-  <!-- Related work. -->
-  <div class="columns is-centered has-text-centered">
-    <div class="column is-four-fifths">
-      <h2 class="title is-3">Related work</h2>
-      <img id="teaser" src="./static/images/related_work_real_finial.png" alt="Schematic image" style="width: 100%; height: auto;">
-      <div class="content has-text-centered">
-        <p>
-          Overview of robotic system manipulation of rheological materials.
-        </p>
-      </div>
-    </div>
-  </div>
-  <!--/ Related work. -->
-
-  <!-- Method. -->
-  <div class="columns is-centered has-text-justified">
-    <div class="column is-four-fifths">
-      <h2 class="title is-3">How does it work?</h2>
-      <img id="teaser" src="./static/images/method_nmi.png" alt="Schematic image" style="width: 100%; height: auto;">
-      <div class="content has-text-centered">
-        <p>
-          Overview of robotic system manipulation of rheological materials.
-        </p>
-      </div>
-    </div>
-  </div>
-  <!--/ Method. -->
-</section>
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
