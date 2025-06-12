@@ -22,56 +22,33 @@
     gtag('config', 'G-PYVRSFMDRL');
   </script>
 
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const images = [
-  {
-    src: "./static/images/schematic1.jpeg",
-    caption: `
-      <div class="content has-text-justified">
-        <p><strong>a</strong>, The large vision-language model (LVLM) classifies the material as granular or fluid.
-        <strong>b</strong>, The robot successfully pours granular material using policy π<sub>A</sub>.
-        <strong>c</strong>, A failure case occurs when applying π<sub>A</sub> to a fluid material, resulting in spillage due to viscous fingering.
-        <strong>d</strong>, Force-based feedback is used to estimate the fluid's density and viscosity.
-        <strong>e</strong>, Policy π<sub>A</sub> is fine-tuned into π<sub>A</sub><sup>&prime;</sup> via parallel training to adapt to the fluid’s rheology.
-        <strong>f</strong>, The robot pours the fluid successfully using the adapted policy π<sub>A</sub><sup>&prime;</sup>.</p>
-      </div>`
-  },
-  {
-    src: "./static/images/schematic2.jpeg",
-    caption: `
-      <div class="content has-text-justified">
-        <p><strong>g</strong>, RheoAgent demonstrates material-adaptive manipulation across granular materials, inviscid fluids, viscous fluids, and elasto-plastic fluids in a kitchen environment.</p>
-      </div>`
-  }
-];
-
-    let currentIndex = 0;
-    const teaserImage = document.getElementById("teaser-image");
-    const captionBox = document.getElementById("caption-box");
-    const prevBtn = document.getElementById("prev-btn");
-    const nextBtn = document.getElementById("next-btn");
-
-    function updateContent(index) {
-      teaserImage.src = images[index].src;
-      captionBox.innerHTML = images[index].caption;
+  <style>
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: sans-serif;
+      background-color: #f8f8f8;
     }
-
-    prevBtn.addEventListener("click", () => {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      updateContent(currentIndex);
-    });
-
-    nextBtn.addEventListener("click", () => {
-      currentIndex = (currentIndex + 1) % images.length;
-      updateContent(currentIndex);
-    });
-
-    // 初始加载
-    updateContent(currentIndex);
-  });
-</script>
-
+    h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .gif-grid {
+      display: grid;
+      grid-template-columns: repeat(16, 1fr);
+      gap: 3px;
+      justify-items: center;
+    }
+    .gif-grid img {
+      width: 100%;
+      max-width: 100px;
+      height: auto;
+      display: block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background: white;
+    }
+  </style>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
@@ -135,7 +112,6 @@
 
   </div>
 </nav>
-
 
 <section class="hero">
   <div class="hero-body">
@@ -234,58 +210,46 @@
   </div>
 </section>
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Robotic manipulation in environments such as biochemical laboratories and kitchens faces challenges due to the rheological heterogeneity of materials, affecting their mechanical response to external forces. Traditional approaches often focus on manipulating materials of a single rheological type, neglecting how operational strategies must adapt when handling materials with varying flow and deformation characteristics. In this work, we introduce a hierarchical decision-making robotic manipulation system for cross-rheological material handling, namely RheoAgent, to tackle the robotics manipulation challenges posed by diverse rheological material scenarios. Our approach leverages dual-modal vision-driven reinforcement learning, which integrates pixel and voxel map representations, while additionally incorporating material classification from large vision-language models. This integration forms a system capable of flexible operations across various rheological materials. We adopt a curriculum-based differentiable training framework to balance learning efficiency and model accuracy. The policy is first pre-trained on simplified particle-based dynamics, followed by fine-tuning using a model-based short-horizon actor-critic algorithm to incorporate specific rheological characteristics. Under this framework, the pouring and gathering tasks achieved success rates of 99.08% and 95.12% for inviscid materials, 99.07% and 96.98% for viscous materials, and 98.53% and 97.51% for elasto-plastic materials, respectively. RheoAgent establishes a new framework for intelligent rheological material handling, with applications that extend to industrial automation, laboratory robotics, and assistive technologies.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+</section>
+
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
 
-      <!-- ✅ 外层边框容器 + 让其成为相对定位参考点 -->
-      <div class="box" style="position: relative; border: 1px solid #ccc; border-radius: 8px; padding: 1rem;">
+      <!-- 外层边框容器，添加边框和圆角 -->
+      <div class="box" style="border: 1px solid #ccc; border-radius: 8px; padding: 1rem;">
 
-        <!-- 图片容器（不再负责定位按钮） -->
-        <div style="text-align: center;">
-          <img id="teaser-image" src="" alt="Schematic image" style="width: 100%; height: auto; border-radius: 8px;">
+        <!-- 图片本身 -->
+        <img id="teaser" src="./static/images/schematic.png" alt="Schematic image" style="width: 100%; height: auto;">
+
+        <!-- caption 内容 -->
+        <div class="content has-text-justified" style="margin-top: 1rem;">
+          <p><strong>a</strong>, The large vision-language model (LVLM) classifies the material as granular or fluid.
+          <strong>b</strong>, The robot successfully pours granular material using policy π<sub>A</sub>.
+          <strong>c</strong>, A failure case occurs when applying π<sub>A</sub> to a fluid material, resulting in spillage due to viscous fingering.
+          <strong>d</strong>, Force-based feedback is used to estimate the fluid's density and viscosity.
+          <strong>e</strong>, Policy π<sub>A</sub> is fine-tuned into π<sub>A</sub><sup>&prime;</sup> via parallel training to adapt to the fluid’s rheology.
+          <strong>f</strong>, The robot pours the fluid successfully using the adapted policy π<sub>A</sub><sup>&prime;</sup>.</p>
+
+          <p><strong>g</strong>, RheoAgent demonstrates material-adaptive manipulation across granular materials, inviscid fluids, viscous fluids, and elasto-plastic fluids in a kitchen environment.</p>
         </div>
 
-        <!-- 左箭头 -->
-        <button id="prev-btn" style="
-          position: absolute;
-          top: 50%;
-          left: -2.5rem;
-          transform: translateY(-50%);
-          background: white;
-          border: 2px solid #ccc;
-          border-radius: 50%;
-          width: 40px;
-          height: 40px;
-          cursor: pointer;
-          box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-        ">
-          &#10094;
-        </button>
-
-        <!-- 右箭头 -->
-        <button id="next-btn" style="
-          position: absolute;
-          top: 50%;
-          right: -2.5rem;
-          transform: translateY(-50%);
-          background: white;
-          border: 2px solid #ccc;
-          border-radius: 50%;
-          width: 40px;
-          height: 40px;
-          cursor: pointer;
-          box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-        ">
-          &#10095;
-        </button>
-
-        <!-- 图片说明文字 -->
-        <div id="caption-box" class="content has-text-justified" style="margin-top: 1rem;">
-          <!-- JS 注入 -->
-        </div>
-
-      </div> <!-- ✅ box 结束 -->
+      </div>
 
     </div>
   </div>
@@ -297,40 +261,11 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Robotic manipulation in environments such as biochemical laboratories and kitchens faces challenges due to the rheological heterogeneity of materials, affecting their mechanical response to external forces. Traditional approaches often focus on manipulating materials of a single rheological type, neglecting how operational strategies must adapt when handling materials with varying flow and deformation characteristics. In this work, we introduce a hierarchical decision-making robotic manipulation system for cross-rheological material handling, namely RheoAgent, to tackle the robotics manipulation challenges posed by diverse rheological material scenarios. Our approach combines the material classification capabilities of large vision-language models (LVLMs) — achieving an accuracy of 86.0\% — with dual-modal vision-driven reinforcement learning (RL) using pixel map and voxel map. This integration forms a system capable of flexible operations across various rheological materials. The learning process of the RL module consists of two phases: a rapid learning process for the baseline model and a model fine-tuning process that incorporates specific rheological characteristics, effectively balancing learning costs and model accuracy. Exceeding baseline model-free RL models that have not been fine-tuned by 58.17–98.97\% points through fine-tuning with a model-based approach, the model achieves success rates of 99.08\% and 95.12\% for inviscous materials, 99.07\% and 96.98\% for viscous materials, and 98.53\% and 97.51\% for elasto-plastic materials in the pouring and gathering tasks, respectively. RheoAgent establishes a new paradigm for intelligent material handling, with applications extending to industrial automation, laboratory robotics, and assistive technologies.
-          </p>
-        </div>
-      </div>
-    </div>
-    <!--/ Abstract. -->
-    <!-- Video. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="content has-text-justified">
-          <p>
-            
-          </p>
-        </div>
-      </div>
-    </div>
-    <!--/ Video. -->
-</section>
-<hr>
-<section class="section">
-  <div class="container is-max-desktop">
     <!-- Task Selection Panel -->
     <div class="columns is-vcentered">
       <div class="column is-half">
-        <h2 class="title is-3">Fine-tuned Model Evaluation</h2>
+        <h2 class="title is-3" style="text-align: left; margin-bottom: 0.5rem;">Fine-tuned Model Evaluation</h2>
       </div>
-      
     </div>
 
     <!-- ✅ 新增说明段落，放在上方整行布局之后 -->
@@ -349,6 +284,23 @@
           </p>
         </div>
       </div>
+    </div>
+
+    <!-- 外部包裹容器，添加边框和圆角 -->
+    <div class="box" style="border: 1px solid #ccc; border-radius: 8px; padding: 1rem;">
+
+      <!-- 图片本身 -->
+      <img id="teaser" src="./static/images/real_exp2.png" alt="Schematic image" style="width: 100%; height: auto;">
+
+      <!-- caption 内容 -->
+      <div class="content has-text-justified" style="margin-top: 1rem;">
+        <p>
+          <strong>Real-world performance of the pre-trained model (trained on granular materials).</strong>
+          <strong>a</strong>, Real-world performance of the pre-trained model (trained on granular materials).
+          <strong>b</strong>, Sequential frames illustrating a real-world gathering scenario.
+        </p>
+      </div>
+
     </div>
 
 
@@ -426,187 +378,124 @@
       <h3 class="title is-8">Pour Task – Elasto-plastic Fluid</h3>
     </div> -->
 
-
-    <div class="box" style="padding: 1.5rem;">
-      <h3 class="title is-5" style="margin-bottom: 1rem;">Gather Task Overview</h3>
-      <div class="columns is-multiline is-mobile">
-        <!-- Top Left Group -->
-        <div class="column is-half">
-          <div class="gif-group-box" style="border-bottom: 1px solid #ccc; padding-bottom: 1rem;">
-            <p class="gif-group-title" style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem;">Pour Task – Elasto-plastic Fluid</p>
-            <div class="gif-grid-6x4">
-              <img src="./static/videos/GIF-gather-elasto/6865-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-elasto/6869-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-elasto/6873-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-elasto/6876-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-elasto/6879-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-elasto/6886-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-elasto/6892-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-elasto/6895-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-elasto/6898-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-elasto/6901-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-elasto/6919-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-elasto/6933-1.gif" alt="gif">
-
-            <img src="./static/videos/GIF-gather-elasto/6942-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-elasto/6947-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-elasto/6952-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-elasto/6942-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-elasto/6955-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-elasto/6958-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-elasto/6963-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-elasto/6979-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-elasto/6985-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-elasto/6989-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-elasto/7002-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-elasto/7007-1.gif" alt="gif">
-            </div>
-          </div>
-        </div>
-    
-        <!-- Top Right Group -->
-        <div class="column is-half">
-          <div class="gif-group-box" style="border-bottom: 1px solid #ccc; padding-bottom: 1rem;">
-            <p class="gif-group-title" style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem;">Gather Task – Viscous Fluid</p>
-            <div class="gif-grid-6x4">
-              <img src="./static/videos/GIF-gather-viscous/7236-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7260-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7265-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7268-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7271-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7276-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7283-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7286-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7290-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7293-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7300-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7306-1.gif" alt="gif">
-
-            <img src="./static/videos/GIF-gather-viscous/7309-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7312-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7323-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7327-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7330-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7335-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7338-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7345-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7353-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7356-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7362-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7374-1.gif" alt="gif">
-            </div>
-          </div>
-        </div>
-    
-        <!-- Bottom Left Group -->
-        <div class="column is-half">
-          <div class="gif-group-box" style="border-bottom: 1px solid #ccc; padding-bottom: 1rem;">
-            <p class="gif-group-title" style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem;">Pour Task – Elasto-plastic Fluid</p>
-            <div class="gif-grid-6x4">
-              <img src="./static/videos/GIF-gather-viscous/7236-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7260-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7265-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7268-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7271-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7276-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7283-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7286-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7290-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7293-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7300-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7306-1.gif" alt="gif">
-
-            <img src="./static/videos/GIF-gather-viscous/7309-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7312-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7323-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7327-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7330-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7335-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7338-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7345-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7353-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7356-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7362-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7374-1.gif" alt="gif">
-            </div>
-          </div>
-        </div>
-    
-        <!-- Bottom Right Group -->
-        <div class="column is-half">
-          <div class="gif-group-box" style="border-bottom: 1px solid #ccc; padding-bottom: 1rem;">
-            <p class="gif-group-title" style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem;">Pour Task – Elasto-plastic Fluid</p>
-            <div class="gif-grid-6x4">
-              <img src="./static/videos/GIF-gather-viscous/7236-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7260-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7265-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7268-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7271-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7276-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7283-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7286-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7290-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7293-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7300-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7306-1.gif" alt="gif">
-
-            <img src="./static/videos/GIF-gather-viscous/7309-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7312-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7323-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7327-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7330-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7335-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7338-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7345-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7353-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7356-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7362-1.gif" alt="gif">
-            <img src="./static/videos/GIF-gather-viscous/7374-1.gif" alt="gif">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-  <hr>
-
-    <!-- 外部包裹容器，添加边框和圆角 -->
-    <div class="box" style="border: 1px solid #ccc; border-radius: 8px; padding: 1rem;">
-
-      <!-- 图片本身 -->
-      <img id="teaser" src="./static/images/real_exp2.png" alt="Schematic image" style="width: 100%; height: auto;">
-
-      <!-- caption 内容 -->
-      <div class="content has-text-justified" style="margin-top: 1rem;">
-        <p>
-          <strong>Real-world performance of the pre-trained model (trained on granular materials).</strong>
-          <strong>a</strong>, Real-world performance of the pre-trained model (trained on granular materials).
-          <strong>b</strong>, Sequential frames illustrating a real-world gathering scenario.
-        </p>
-      </div>
-
+        <!-- 跳转链接 -->
+    <div style="margin-bottom: 1rem;">
+      <a href="details.html" style="font-size: 1rem; color: #007acc; text-decoration: underline;">
+        → View detailed experiment breakdown
+      </a>
     </div>
 
+    <div class="gif-grid">
+      <img src="./static/videos/GIF-gather-granular/6720-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-granular/6726-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-granular/6739-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-granular/6742-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-granular/6747-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-granular/6749-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-granular/6752-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-granular/6755-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-granular/6758-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-granular/6766-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-granular/6769-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-granular/6773-1.gif" alt="gif">
+
+      <img src="./static/videos/GIF-gather-granular/6775-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-granular/6777-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-granular/6786-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-granular/6792-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-granular/6796-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-granular/6799-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-granular/6806-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-granular/6820-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-granular/6822-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-granular/6826-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-granular/6828-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-granular/6836-1.gif" alt="gif">
+      
+
+      <img src="./static/videos/GIF-gather-inviscid/7067-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-inviscid/7071-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-inviscid/7076-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-inviscid/7084-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-inviscid/7087-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-inviscid/7099-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-inviscid/7101-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-inviscid/7105-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-inviscid/7108-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-inviscid/7111-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-inviscid/7123-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-inviscid/7130-1.gif" alt="gif">
+
+      <img src="./static/videos/GIF-gather-inviscid/7133-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-inviscid/7136-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-inviscid/7139-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-inviscid/7144-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-inviscid/7147-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-inviscid/7151-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-inviscid/7154-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-inviscid/7160-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-inviscid/7167-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-inviscid/7170-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-inviscid/7174-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-inviscid/7178-1.gif" alt="gif">
     
+
+      <img src="./static/videos/GIF-gather-viscous/7236-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-viscous/7260-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-viscous/7265-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-viscous/7268-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-viscous/7271-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-viscous/7276-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-viscous/7283-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-viscous/7286-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-viscous/7290-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-viscous/7293-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-viscous/7300-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-viscous/7306-1.gif" alt="gif">
+
+      <img src="./static/videos/GIF-gather-viscous/7309-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-viscous/7312-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-viscous/7323-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-viscous/7327-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-viscous/7330-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-viscous/7335-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-viscous/7338-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-viscous/7345-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-viscous/7353-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-viscous/7356-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-viscous/7362-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-viscous/7374-1.gif" alt="gif">
+
+      <img src="./static/videos/GIF-gather-elasto/6865-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-elasto/6869-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-elasto/6873-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-elasto/6876-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-elasto/6879-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-elasto/6886-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-elasto/6892-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-elasto/6895-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-elasto/6898-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-elasto/6901-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-elasto/6919-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-elasto/6933-1.gif" alt="gif">
+
+      <img src="./static/videos/GIF-gather-elasto/6942-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-elasto/6947-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-elasto/6952-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-elasto/6942-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-elasto/6955-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-elasto/6958-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-elasto/6963-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-elasto/6979-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-elasto/6985-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-elasto/6989-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-elasto/7002-1.gif" alt="gif">
+      <img src="./static/videos/GIF-gather-elasto/7007-1.gif" alt="gif">
+    </div>
 
     <!-- Segmentation. -->
-    <!-- <hr style="border: none; border-top: 1px solid #ccc; margin: 1rem 0;"> -->
     <hr>
     <h3 class="title is-3">Real-time Segmentation and Perception Mapping</h2>
-
-    <img id="teaser" src="./static/images/real_visual.png" alt="Schematic image" style="width: 100%; height: auto;">
-    <div class="content has-text-justified">
-      <p>
-        <strong>Visual encoding pipeline for real-world rheological perception.</strong>
-        <strong>a</strong>, Schematic of the real-world perception system. A dual-camera configuration mitigates point cloud occlusion. Green and blue arrows denote the viewing directions for generating voxel and pixel maps, respectively.
-        <strong>b</strong>, <a href="https://ai.meta.com/sam2/" target="_blank">SAM2</a>-based segmentation of kinetic sand from dual perspectives.
-        <strong>c</strong>, Agent-centric viewer constructed from multi-view fused point clouds. The blue spherical region denotes the field of view, where yellow and purple indicate closer and farther regions.
-        <strong>d</strong>, Top-down view of the fused point cloud, used for constructing orthographic projections.
-        <strong>e</strong>, Equirectangular projection of the spherical view forming the voxel map, based on latitude–longitude grid discretization with per-cell nearest distance encoding.
-        <strong>f</strong>, Rasterized orthographic pixel map derived from the top-down projection of the segmented point cloud.
-      </p>
-    </div>
-  
     <div class="content has-text-justified">
       <p>
         We employ the <strong>Segment Anything Model 2 (SAM2)</strong> to perform real-time segmentation of rheological materials from RGB-D inputs.
@@ -621,6 +510,26 @@
         These representations serve as structured perceptual inputs for downstream robotic manipulation policies.
       </p>
     </div>
+    
+    
+    <!-- 外部包裹容器，添加边框和圆角 -->
+    <div class="box" style="border: 1px solid #ccc; border-radius: 8px; padding: 1rem;">
+      <img id="teaser" src="./static/images/real_visual.png" alt="Schematic image" style="width: 100%; height: auto;">
+        <div class="content has-text-justified">
+          <p>
+            <strong>Visual encoding pipeline for real-world rheological perception.</strong>
+            <strong>a</strong>, Schematic of the real-world perception system. A dual-camera configuration mitigates point cloud occlusion. Green and blue arrows denote the viewing directions for generating voxel and pixel maps, respectively.
+            <strong>b</strong>, <a href="https://ai.meta.com/sam2/" target="_blank">SAM2</a>-based segmentation of kinetic sand from dual perspectives.
+            <strong>c</strong>, Agent-centric viewer constructed from multi-view fused point clouds. The blue spherical region denotes the field of view, where yellow and purple indicate closer and farther regions.
+            <strong>d</strong>, Top-down view of the fused point cloud, used for constructing orthographic projections.
+            <strong>e</strong>, Equirectangular projection of the spherical view forming the voxel map, based on latitude–longitude grid discretization with per-cell nearest distance encoding.
+            <strong>f</strong>, Rasterized orthographic pixel map derived from the top-down projection of the segmented point cloud.
+          </p>
+        </div>
+      </div>
+    </div>
+  
+    
     <div class="content has-text-centered">
       <video id="replay-video"
               controls
@@ -689,35 +598,37 @@
       </div>
       <!--/ Re-rendering. -->
     
-    <!-- Concurrent Work. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Related Links</h2>
-        <div class="content has-text-justified">
-          <!-- <p>
-            There's a lot of excellent work that was introduced around the same time as ours.
-          </p>
-          <p>
-            <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
-          </p>
-          <p>
-            <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
-            both use deformation fields to model non-rigid scenes.
-          </p>
-          <p>
-            Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>
-          </p>
-          <p>
-            There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
-          </p> -->
-        </div>
-      </div>
-    </div>
-    <!--/ Concurrent Work. -->
-
-  </div>
 </section>
 
+<div class="container is-max-desktop">
+  <!-- Related work. -->
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <h2 class="title is-3">Related work</h2>
+      <img id="teaser" src="./static/images/related_work_real_finial.png" alt="Schematic image" style="width: 100%; height: auto;">
+      <div class="content has-text-centered">
+        <p>
+          Overview of robotic system manipulation of rheological materials.
+        </p>
+      </div>
+    </div>
+  </div>
+  <!--/ Related work. -->
+
+  <!-- Method. -->
+  <div class="columns is-centered has-text-justified">
+    <div class="column is-four-fifths">
+      <h2 class="title is-3">How does it work?</h2>
+      <img id="teaser" src="./static/images/method_nmi.png" alt="Schematic image" style="width: 100%; height: auto;">
+      <div class="content has-text-centered">
+        <p>
+          Overview of robotic system manipulation of rheological materials.
+        </p>
+      </div>
+    </div>
+  </div>
+  <!--/ Method. -->
+</section>
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
@@ -764,37 +675,6 @@
   </div>
 </footer>
 
-<hr>
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Related work. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Related work</h2>
-        <img id="teaser" src="./static/images/related_work_real_finial.png" alt="Schematic image" style="width: 100%; height: auto;">
-        <div class="content has-text-centered">
-          <p>
-            Overview of robotic system manipulation of rheological materials.
-          </p>
-        </div>
-      </div>
-    </div>
-    <!--/ Related work. -->
-
-    <!-- Method. -->
-    <div class="columns is-centered has-text-justified">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">How does it work?</h2>
-        <img id="teaser" src="./static/images/method_nmi.png" alt="Schematic image" style="width: 100%; height: auto;">
-        <div class="content has-text-centered">
-          <p>
-            Overview of robotic system manipulation of rheological materials.
-          </p>
-        </div>
-      </div>
-    </div>
-    <!--/ Method. -->
-</section>
 
 </body>
 </html>
