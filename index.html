@@ -251,8 +251,170 @@
   </div>
 </section>
 
+<section class="section">
+  <div class="container is-max-desktop">
 
+    <!-- Title -->
+    <h3 class="title is-3">Improving Material Adaptation via Differentiable MPM Fine-Tuning</h3>
 
+    <div class="content has-text-justified" style="font-size: 0.95rem; margin-bottom: 1.5rem;">
+      <p>
+        To bridge the gap between simplified pre-training dynamics and complex real-world rheological behavior, we employ fine-tuning within a differentiable simulation environment based on the Material Point Method (MPM).
+        This approach provides physically grounded gradient feedback, enabling the policy to adapt to dynamics such as <em>yield stress, plastic flow, and contact-induced retention</em>.
+      </p>
+      <p>
+        Compared to the initial pre-trained policy, the fine-tuned model exhibits more stable interactions and improved task success under non-ideal conditions, such as deformable surface adherence or delayed flow onset.
+        Notably, fine-tuning enhances the agent’s ability to modulate tool velocity, angle, and path in response to subtle rheological cues—capabilities that are critical for handling <strong>viscous and elasto-plastic materials</strong>.
+      </p>
+    </div>
+
+    <!-- Figure Box -->
+    <div class="box" style="padding: 1rem;">
+      <div class="columns is-multiline is-variable is-4">
+
+        <!-- a -->
+        <div class="column is-half" style="position: relative;">
+          <span class="label-box">a</span>
+          <img src="./static/images/failure_pour.png" alt="Failure pour" style="width: 100%;">
+        </div>
+
+        <!-- b -->
+        <div class="column is-half" style="position: relative;">
+          <span class="label-box">b</span>
+          <img src="./static/images/failure_gather.png" alt="Failure gather" style="width: 100%;">
+        </div>
+
+        <!-- c -->
+        <div class="column is-half" style="position: relative;">
+          <span class="label-box">c</span>
+          <!-- Before fine-tuning (top row) -->
+          <div class="columns is-mobile is-gapless" style="align-items: center;">
+            <div class="column is-one-third has-text-centered">
+              <img src="./static/videos/GIF-simulation/pour_inviscid_PT.gif" style="width: 100%; height: auto;">
+            </div>
+            <div class="column is-one-third has-text-centered">
+              <img src="./static/videos/GIF-simulation/pour_viscous_PT.gif" style="width: 100%; height: auto;">
+            </div>
+            <div class="column is-one-third has-text-centered">
+              <img src="./static/videos/GIF-simulation/pour_elasto_PT.gif" style="width: 100%; height: auto;">
+            </div>
+          </div>
+
+          <!-- Arrow row -->
+          <div class="columns is-mobile is-gapless" style="align-items: center;">
+            <div class="column is-one-third has-text-centered">
+              <span style="font-size: 1.5rem; font-weight: bold;">&#x2193;</span>
+              <div style="font-size: 0.8rem;">Fine-tuned</div>
+            </div>
+            <div class="column is-one-third has-text-centered">
+              <span style="font-size: 1.5rem; font-weight: bold;">&#x2193;</span>
+              <div style="font-size: 0.8rem;">Fine-tuned</div>
+            </div>
+            <div class="column is-one-third has-text-centered">
+              <span style="font-size: 1.5rem; font-weight: bold;">&#x2193;</span>
+              <div style="font-size: 0.8rem;">Fine-tuned</div>
+            </div>
+          </div>
+
+          <!-- After fine-tuning (bottom row) -->
+          <div class="columns is-mobile is-gapless" style="align-items: center;">
+            <div class="column is-one-third has-text-centered">
+              <img src="./static/videos/GIF-simulation/pour_inviscid_FT.gif" style="width: 100%; height: auto;">
+            </div>
+            <div class="column is-one-third has-text-centered">
+              <img src="./static/videos/GIF-simulation/pour_viscous_FT.gif" style="width: 100%; height: auto;">
+            </div>
+            <div class="column is-one-third has-text-centered">
+              <img src="./static/videos/GIF-simulation/pour_elasto_FT.gif" style="width: 100%; height: auto;">
+            </div>
+          </div>
+        </div>
+
+        <!-- d -->
+        <div class="column is-half" style="position: relative;">
+          <span class="label-box">d</span>
+          <!-- Before fine-tuning (top row) -->
+          <div class="columns is-mobile is-gapless" style="align-items: center;">
+            <div class="column is-one-third has-text-centered">
+              <img src="./static/videos/GIF-simulation/gather_inviscid_PT.gif" style="width: 100%; height: auto;">
+            </div>
+            <div class="column is-one-third has-text-centered">
+              <img src="./static/videos/GIF-simulation/gather_viscous_PT.gif" style="width: 100%; height: auto;">
+            </div>
+            <div class="column is-one-third has-text-centered">
+              <img src="./static/videos/GIF-simulation/gather_elasto_PT.gif" style="width: 100%; height: auto;">
+            </div>
+          </div>
+
+          <!-- Arrow row -->
+          <div class="columns is-mobile is-gapless" style="align-items: center;">
+            <div class="column is-one-third has-text-centered">
+              <span style="font-size: 1.5rem; font-weight: bold;">&#x2193;</span>
+              <div style="font-size: 0.8rem;">Fine-tuned</div>
+            </div>
+            <div class="column is-one-third has-text-centered">
+              <span style="font-size: 1.5rem; font-weight: bold;">&#x2193;</span>
+              <div style="font-size: 0.8rem;">Fine-tuned</div>
+            </div>
+            <div class="column is-one-third has-text-centered">
+              <span style="font-size: 1.5rem; font-weight: bold;">&#x2193;</span>
+              <div style="font-size: 0.8rem;">Fine-tuned</div>
+            </div>
+          </div>
+
+          <!-- After fine-tuning (bottom row) -->
+          <div class="columns is-mobile is-gapless" style="align-items: center;">
+            <div class="column is-one-third has-text-centered">
+              <img src="./static/videos/GIF-simulation/gather_inviscid_FT.gif" style="width: 100%; height: auto;">
+            </div>
+            <div class="column is-one-third has-text-centered">
+              <img src="./static/videos/GIF-simulation/gather_viscous_FT.gif" style="width: 100%; height: auto;">
+            </div>
+            <div class="column is-one-third has-text-centered">
+              <img src="./static/videos/GIF-simulation/gather_elasto_FT.gif" style="width: 100%; height: auto;">
+            </div>
+          </div>
+        </div>
+
+        <!-- Caption -->
+        <div class="column is-full">
+          <div class="content has-text-justified" style="margin-top: 1rem;">
+            <p>
+              <strong>Failure mechanisms and behavioral adaptation in rheological pouring and gathering tasks.</strong>
+              <strong>a</strong>, Pouring failures when applying a policy trained on granular materials to fluids with different rheologies. Inviscid and viscous fluids lack yield stress, resulting in spillage, while viscosity and plasticity differences lead to divergent flow paths. 
+              <strong>b</strong>, Gathering failures under identical actuation. The furthest boundary displacements highlight distinct rheological responses: elasto-plastic fluid <span class="math inline">\( d_4 \)</span> shows the largest shift, followed by granular material <span class="math inline">\( d_1 \)</span>, viscous fluid <span class="math inline">\( d_3 \)</span>, and inviscid fluid <span class="math inline">\( d_2 \)</span>, reflecting how cohesion and resistance shape transport. 
+              <strong>c</strong>, Pouring behavior across three material types before (Pre-FT) and after fine-tuning (Post-FT). Fine-tuning corrects for material-specific dynamics, improving precision and stability. 
+              <strong>d</strong>, Gathering behavior before and after fine-tuning. The agent learns adaptive pushing strategies tailored to each material, achieving more consistent coverage.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <hr>
+  </div>
+</section>
+
+<!-- Optional: label-box style -->
+<style>
+.label-box {
+  position: absolute;
+  top: 6px;
+  left: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+</style>
+
+<!-- Optional: Include MathJax for math rendering -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 
 
 <section class="section">
@@ -279,10 +441,21 @@
     <div class="box" style="padding: 1rem;">
       <img id="teaser" src="./static/images/real_visual.png" alt="Schematic image" style="width: 100%; height: auto;">
       <div class="content has-text-justified">
-        <p>
+        <p style="font-size: 0.9rem; line-height: 1.6;">
           <strong>Visual encoding pipeline for real-world rheological perception.</strong>
-          <strong>a</strong>, Schematic of the real-world perception system...
+          <strong>a</strong>, Schematic of the real-world perception system. A dual-camera configuration mitigates point cloud occlusion. 
+          Green and blue arrows denote the viewing directions for generating voxel and pixel maps, respectively.
+          <strong>b</strong>, <a href="https://ai.meta.com/sam2/" target="_blank" style="font-weight: bold; text-decoration: underline;">SAM2</a>-based segmentation of kinetic sand from dual perspectives.
+          <strong>c</strong>, Agent-centric viewer constructed from multi-view fused point clouds. The blue spherical region denotes the field of view, where yellow and purple indicate closer and farther regions, respectively, weighted by a normalized function 
+          <span class="math inline">\( f(\hat{d}) \)</span>.
+          <strong>d</strong>, Top-down view of the fused point cloud, used for constructing orthographic projections.
+          <strong>e</strong>, Equirectangular projection of the spherical view forming the voxel map, based on latitude–longitude grid discretization with per-cell nearest distance encoding. 
+          <strong>f</strong>, Rasterized orthographic pixel map derived from the top-down projection of the segmented point cloud.
         </p>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
       </div>
     </div>
 
@@ -742,6 +915,54 @@
     <hr> 
   </div> 
 
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Title -->
+    <h3 class="title is-3">Material Properties Reasoning</h3>
+    <div class="content has-text-justified">
+      <p>
+        To enable autonomous manipulation of unknown rheological materials, <strong>RheoAgent</strong> integrates <strong>visual and physical reasoning</strong>. 
+        <strong>Material type</strong> is first identified using <strong>GPT-4V</strong> based on RGB inputs, distinguishing between <strong>granular</strong>, <strong>fluid</strong>, and <strong>elasto-plastic</strong> categories. 
+        For non-granular materials, the robot estimates <strong>density</strong> via <strong>force sensing</strong> and <strong>viscosity</strong> via standardized shaking, with GPT-4V comparing <strong>dynamic responses</strong> to known references. 
+        These <strong>physical properties</strong> guide targeted <strong>fine-tuning</strong> in a <strong>differentiable simulation environment</strong>. 
+        Segmented point clouds from <strong>multi-view RGB-D inputs</strong> are encoded into <strong>pixel and voxel maps</strong>, serving as <strong>structured observations</strong> for downstream policy adaptation.
+      </p>
+    </div>
+
+    <!-- Image + Caption -->
+    <div class="box" style="padding: 1rem;">
+      <img id="teaser" src="./static/images/materials_identification_method.png" alt="Schematic image" style="width: 100%; height: auto;">
+      <div class="content has-text-justified">
+        <p>
+          <strong>Pipeline for identifying material rheological properties. </strong> This comprises material type classification via visual perception, density estimation through
+          robotic interaction, and viscosity estimation via dynamic response analysis. 
+        </p>
+      </div>
+    </div>
+
+    <!-- Video Demo -->
+    <div class="content" style="margin-bottom: 2rem;">
+      <h3 class="title is-5">Dynamic Response Analysis via Robotic Shaking</h3>
+      <p style="font-size: 0.95rem; line-height: 1.6;">
+        This video demonstrates <strong>viscosity estimation</strong> through standardized shaking motions. 
+        The robot executes consistent oscillations while measuring <strong>force response curves</strong> in real time. 
+        From left to right: <strong>honey</strong>, <strong>soy sauce</strong>, and <strong>cooking wine</strong>, 
+        representing a spectrum of increasing fluidity. 
+        These <strong>dynamic signatures</strong> are analyzed by GPT-4V to classify viscosity intervals, 
+        enabling targeted <strong>policy fine-tuning</strong> within plausible rheological ranges.
+      </p>
+      <video controls muted preload playsinline style="width: 100%; height: auto; border-radius: 6px;">
+        <source src="./static/videos/Dynamic Response Analysis.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <!-- Evaluation Panel (Additional content omitted here for brevity) -->
+    <hr>
+  </div>
 </section>
 
 
