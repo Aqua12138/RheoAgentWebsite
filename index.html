@@ -916,29 +916,16 @@
       </div>
     </div>
 
-    <!-- Select Panels -->
-    <div class="columns is-vcentered">
+    <!-- Task Select -->
+    <div class="columns is-centered">
       <div class="column is-half">
         <div class="field">
-          <label class="label">Combination</label>
+          <label class="label">Task</label>
           <div class="control">
             <div class="select is-fullwidth">
-              <select id="custom-category-select">
-                <option value="inviscous-granular">Inviscous + Granular</option>
-                <option value="inviscous-viscous">Inviscous + Viscous</option>
-                <option value="viscous-granular">Viscous + Granular</option>
-              </select>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="column is-half">
-        <div class="field">
-          <label class="label">Material</label>
-          <div class="control">
-            <div class="select is-fullwidth">
-              <select id="custom-combination-select">
-                <!-- Options 动态生成 -->
+              <select id="task-select">
+                <option value="pouring">Pouring</option>
+                <option value="gathering">Gathering</option>
               </select>
             </div>
           </div>
@@ -947,64 +934,86 @@
     </div>
 
     <!-- Video Display -->
-    <div class="columns is-vcentered" style="margin-top: 1.5rem;">
-      <div class="column has-text-centered">
-        <video id="custom-video" controls muted autoplay playsinline style="width: 100%; height: auto; border-radius: 6px; background-color: #000;">
-          <source id="custom-video-source" src="" type="video/mp4">
+    <div class="columns is-multiline is-variable is-1">
+
+      <!-- 上三列 -->
+      <div class="column is-one-third has-text-centered">
+        <h4 class="subtitle is-5" style="margin-bottom: 0.5rem;" id="title0">Water + Cornstarch</h4>
+        <video id="video0" controls muted autoplay playsinline style="width: 100%; height: auto; border-radius: 6px; background-color: #000;">
+          <source id="source0" src="./static/videos/cornstarch_water.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
+
+      <div class="column is-one-third has-text-centered">
+        <h4 class="subtitle is-5" style="margin-bottom: 0.5rem;" id="title1">Water + Rock Sugar</h4>
+        <video id="video1" controls muted autoplay playsinline style="width: 100%; height: auto; border-radius: 6px; background-color: #000;">
+          <source id="source1" src="./static/videos/rocksugar_water.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="column is-one-third has-text-centered">
+        <h4 class="subtitle is-5" style="margin-bottom: 0.5rem;" id="title2">Water + Honey</h4>
+        <video id="video2" controls muted autoplay playsinline style="width: 100%; height: auto; border-radius: 6px; background-color: #000;">
+          <source id="source2" src="./static/videos/honey_water.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <!-- 下两列平行居中 -->
+      <div class="column is-one-quarter is-offset-one-quarter has-text-centered">
+        <h4 class="subtitle is-5" style="margin-bottom: 0.5rem;" id="title3">Water + Glycerin</h4>
+        <video id="video3" controls muted autoplay playsinline style="width: 100%; height: auto; border-radius: 6px; background-color: #000;">
+          <source id="source3" src="./static/videos/glycerin_water.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="column is-one-quarter has-text-centered">
+        <h4 class="subtitle is-5" style="margin-bottom: 0.5rem;" id="title4">Glycerin + Sugar</h4>
+        <video id="video4" controls muted autoplay playsinline style="width: 100%; height: auto; border-radius: 6px; background-color: #000;">
+          <source id="source4" src="./static/videos/sugar_glycerin.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
     </div>
   </div>
 </section>
 
 <script>
-  // 视频数据映射
-  const videoData = {
-    "inviscous-granular": {
-      "Water + Cornstarch": "./static/videos/cornstarch_water.mp4"
-    },
-    "inviscous-viscous": {
-      "Water + Honey": "./static/videos/honey_water.mp4",
-      "Water + Glycerin": "./static/videos/glycerin_water.mp4"
-    },
-    "viscous-granular": {
-      "Glycerin + Sugar": "./static/videos/sugar_glycerin.mp4"
-    }
+  const videos = {
+    pouring: [
+      { title: "Water + Cornstarch", src: "./static/videos/cornstarch_water.mp4" },
+      { title: "Water + Rock Sugar", src: "./static/videos/rocksugar_water.mp4" },
+      { title: "Water + Honey", src: "./static/videos/honey_water.mp4" },
+      { title: "Water + Glycerin", src: "./static/videos/glycerin_water.mp4" },
+      { title: "Glycerin + Sugar", src: "./static/videos/sugar_glycerin.mp4" }
+    ],
+    gathering: [
+      { title: "", src: "" },
+      { title: "", src: "" },
+      { title: "", src: "" },
+      { title: "", src: "" },
+      { title: "", src: "" }
+    ]
   };
 
-  const categorySelect = document.getElementById("custom-category-select");
-  const combinationSelect = document.getElementById("custom-combination-select");
-  const videoSource = document.getElementById("custom-video-source");
-  const videoElement = document.getElementById("custom-video");
+  const taskSelect = document.getElementById("task-select");
 
-  // 更新组合下拉列表
-  function updateCombinations() {
-    const category = categorySelect.value;
-    const combos = videoData[category];
-    combinationSelect.innerHTML = "";
-    for (let combo in combos) {
-      const option = document.createElement("option");
-      option.value = combo;
-      option.text = combo;
-      combinationSelect.appendChild(option);
+  function loadVideos(task) {
+    for (let i = 0; i < 5; i++) {
+      const v = videos[task][i];
+      document.getElementById(`source${i}`).src = v.src;
+      document.getElementById(`video${i}`).load();
+      document.getElementById(`title${i}`).textContent = v.title;
     }
-    updateVideo();
   }
 
-  // 更新视频
-  function updateVideo() {
-    const category = categorySelect.value;
-    const combination = combinationSelect.value;
-    videoSource.src = videoData[category][combination];
-    videoElement.load();
-  }
+  loadVideos(taskSelect.value);
 
-  categorySelect.addEventListener("change", updateCombinations);
-  combinationSelect.addEventListener("change", updateVideo);
-
-  // 初始化
-  updateCombinations();
+  taskSelect.addEventListener("change", () => loadVideos(taskSelect.value));
 </script>
 
 
