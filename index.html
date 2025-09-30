@@ -889,6 +889,124 @@
 
 </section>
 
+<!-- Custom Experiment Video Panel -->
+<section class="section" id="custom-experiment">
+  <div class="container is-max-desktop">
+
+    <!-- Title -->
+    <div class="columns">
+      <div class="column is-full">
+        <h3 class="title is-3" style="margin-bottom: 0.5rem;">Custom Experiment Videos</h3>
+        <div class="content has-text-justified" style="font-size: 0.95rem; line-height: 1.6;">
+          <p id="custom-description">
+            To evaluate <strong>RheoAgent’s capability</strong> with <strong>multi-component materials</strong>, 
+            we conducted experiments on <strong>mixtures of fluids and granular solids</strong> 
+            with distinct <strong>rheological properties</strong> under unknown proportions. 
+            These mixtures exhibit <strong>emergent behaviors</strong> that cannot be directly 
+            inferred from individual components, posing significant <strong>challenges for robotic manipulation</strong>. 
+            <strong>RheoAgent</strong> was tasked with <strong>pouring and collection operations</strong> 
+            across representative mixtures in three categories: <strong>inviscid fluid + granular material</strong>, 
+            <strong>inviscid fluid + viscous material</strong>, and <strong>viscous fluid + granular material</strong>. 
+            Despite uncertainties in composition and heterogeneous rheology, 
+            the system <strong>successfully adapted in real time</strong>, demonstrating 
+            <strong>robust handling of complex, multi-component materials</strong> and highlighting 
+            its <strong>potential for real-world material manipulation tasks</strong>.
+          </p>          
+        </div>
+      </div>
+    </div>
+
+    <!-- Select Panels -->
+    <div class="columns is-vcentered">
+      <div class="column is-half">
+        <div class="field">
+          <label class="label">Combination</label>
+          <div class="control">
+            <div class="select is-fullwidth">
+              <select id="custom-category-select">
+                <option value="inviscous-granular">Inviscous + Granular</option>
+                <option value="inviscous-viscous">Inviscous + Viscous</option>
+                <option value="viscous-granular">Viscous + Granular</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="column is-half">
+        <div class="field">
+          <label class="label">Material</label>
+          <div class="control">
+            <div class="select is-fullwidth">
+              <select id="custom-combination-select">
+                <!-- Options 动态生成 -->
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video Display -->
+    <div class="columns is-vcentered" style="margin-top: 1.5rem;">
+      <div class="column has-text-centered">
+        <video id="custom-video" controls muted autoplay playsinline style="width: 100%; height: auto; border-radius: 6px; background-color: #000;">
+          <source id="custom-video-source" src="" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // 视频数据映射
+  const videoData = {
+    "inviscous-granular": {
+      "Water + Cornstarch": "./static/videos/cornstarch_water.mp4"
+    },
+    "inviscous-viscous": {
+      "Water + Honey": "./static/videos/honey_water.mp4",
+      "Water + Glycerin": "./static/videos/glycerin_water.mp4"
+    },
+    "viscous-granular": {
+      "Glycerin + Sugar": "./static/videos/sugar_glycerin.mp4"
+    }
+  };
+
+  const categorySelect = document.getElementById("custom-category-select");
+  const combinationSelect = document.getElementById("custom-combination-select");
+  const videoSource = document.getElementById("custom-video-source");
+  const videoElement = document.getElementById("custom-video");
+
+  // 更新组合下拉列表
+  function updateCombinations() {
+    const category = categorySelect.value;
+    const combos = videoData[category];
+    combinationSelect.innerHTML = "";
+    for (let combo in combos) {
+      const option = document.createElement("option");
+      option.value = combo;
+      option.text = combo;
+      combinationSelect.appendChild(option);
+    }
+    updateVideo();
+  }
+
+  // 更新视频
+  function updateVideo() {
+    const category = categorySelect.value;
+    const combination = combinationSelect.value;
+    videoSource.src = videoData[category][combination];
+    videoElement.load();
+  }
+
+  categorySelect.addEventListener("change", updateCombinations);
+  combinationSelect.addEventListener("change", updateVideo);
+
+  // 初始化
+  updateCombinations();
+</script>
+
 
 
 <!-- Multi-Robot Collaboration Section -->
