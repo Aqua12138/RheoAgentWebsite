@@ -894,7 +894,7 @@
   <div class="container is-max-desktop">
 
     <!-- Title -->
-    <h3 class="title is-3" style="margin-bottom: 0.5rem;">Mixtures</h3>
+    <h3 class="title is-3 mb-3">Mixtures</h3>
     <div class="content has-text-justified" style="font-size: 0.95rem; line-height: 1.6;">
       <p>
         To evaluate <strong>RheoAgent’s capability</strong> with <strong>multi-component materials</strong>, 
@@ -912,24 +912,20 @@
       </p>          
     </div>
 
-    <!-- Small Subtitle: Performance -->
-    <div class="columns">
-      <div class="column is-full">
-        <h4 class="title is-4" style="margin-bottom: 0.5rem;">Manipulating Performance</h4>
-      </div>
-    </div>
-
-    <!-- Performance content placeholder -->
-    <div class="content has-text-justified" style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
+    <!-- ================= Performance Section ================= -->
+    <h4 class="title is-4 mt-5 mb-3">Manipulating Performance</h4>
+    <div class="content has-text-justified" style="font-size: 0.95rem; line-height: 1.6;">
       <p>
-        This section presents the <strong>overall performance metrics</strong> and evaluation of RheoAgent on multi-component material manipulation. 
-        Here we provide a placeholder text to indicate the type of analysis that will appear, including success rates, efficiency, 
-        and stability metrics for various fluid and granular mixtures.
+        This section presents the <strong>overall performance evaluation</strong> of <strong>RheoAgent</strong> in multi-component material manipulation tasks. 
+        Across a series of pouring and collection experiments, the system achieved <strong>a consistently high success rate</strong> even under 
+        <strong>unknown mixing ratios and diverse rheological conditions</strong>, demonstrating <strong>highly stable task execution</strong>. 
+        RheoAgent also exhibited <strong>strong generalization capability</strong> across different material categories, 
+        validating its <strong>robustness and reliability in complex, real-world scenarios</strong>.
       </p>
     </div>
 
-    <!-- Task Select below Performance content -->
-    <div class="columns is-centered" style="margin-bottom: 1.5rem;">
+    <!-- Task Select -->
+    <div class="columns is-centered mb-5">
       <div class="column is-half">
         <div class="field">
           <label class="label">Task</label>
@@ -945,118 +941,93 @@
       </div>
     </div>
 
-    <!-- Performance Video Display -->
-    <div class="columns is-multiline is-variable is-1">
-
-      <!-- 上三列 -->
+    <!-- Performance Videos -->
+    <div id="performance-videos" class="columns is-multiline is-variable is-2 is-centered">
       <div class="column is-one-third has-text-centered">
-        <h5 class="subtitle is-5" style="margin-bottom: 0.5rem;" id="title0">Water + Starch</h5>
-        <video id="video0" controls muted autoplay playsinline style="width: 100%; height: auto; border-radius: 6px; background-color: #000;">
+        <h5 id="title0" class="subtitle is-5 mb-2">Water + Starch</h5>
+        <video id="video0" controls muted playsinline preload="metadata" style="width: 100%; border-radius: 6px; background-color: #000;">
           <source id="source0" src="./static/videos/cornstarch_water.mp4" type="video/mp4">
-          Your browser does not support the video tag.
         </video>
       </div>
 
       <div class="column is-one-third has-text-centered">
-        <h5 class="subtitle is-5" style="margin-bottom: 0.5rem;" id="title1">Water + Rock Sugar</h5>
-        <video id="video1" controls muted autoplay playsinline style="width: 100%; height: auto; border-radius: 6px; background-color: #000;">
+        <h5 id="title1" class="subtitle is-5 mb-2">Water + Rock Sugar</h5>
+        <video id="video1" controls muted playsinline preload="metadata" style="width: 100%; border-radius: 6px; background-color: #000;">
           <source id="source1" src="./static/videos/rocksugar_water.mp4" type="video/mp4">
-          Your browser does not support the video tag.
         </video>
       </div>
 
       <div class="column is-one-third has-text-centered">
-        <h5 class="subtitle is-5" style="margin-bottom: 0.5rem;" id="title2">Water + Honey</h5>
-        <video id="video2" controls muted autoplay playsinline style="width: 100%; height: auto; border-radius: 6px; background-color: #000;">
+        <h5 id="title2" class="subtitle is-5 mb-2">Water + Honey</h5>
+        <video id="video2" controls muted playsinline preload="metadata" style="width: 100%; border-radius: 6px; background-color: #000;">
           <source id="source2" src="./static/videos/honey_water.mp4" type="video/mp4">
-          Your browser does not support the video tag.
         </video>
       </div>
 
-      <!-- 下两列平行居中 -->
-      <div class="columns is-centered">
-        <div class="column is-one-third has-text-centered">
-          <h5 class="subtitle is-5" style="margin-bottom: 0.5rem;" id="title3">Water + Glycerin</h5>
-          <video id="video3" controls muted autoplay playsinline style="width: 100%; height: auto; border-radius: 6px; background-color: #000;">
-            <source id="source3" src="./static/videos/glycerin_water.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-
-        <div class="column is-one-third has-text-centered">
-          <h5 class="subtitle is-5" style="margin-bottom: 0.5rem;" id="title4">Glycerin + Sugar</h5>
-          <video id="video4" controls muted autoplay playsinline style="width: 100%; height: auto; border-radius: 6px; background-color: #000;">
-            <source id="source4" src="./static/videos/sugar_glycerin.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
+      <div class="column is-one-third has-text-centered">
+        <h5 id="title3" class="subtitle is-5 mb-2">Water + Glycerin</h5>
+        <video id="video3" controls muted playsinline preload="metadata" style="width: 100%; border-radius: 6px; background-color: #000;">
+          <source id="source3" src="./static/videos/glycerin_water.mp4" type="video/mp4">
+        </video>
       </div>
 
-    </div>
-
-    <!-- Dynamic Response Analysis Small Subtitle -->
-    <div class="columns" style="margin-top: 2rem;">
-      <div class="column is-full">
-        <h4 class="title is-4" style="margin-bottom: 0.5rem;">Dynamic Response Analysis</h4>
+      <div class="column is-one-third has-text-centered">
+        <h5 id="title4" class="subtitle is-5 mb-2">Glycerin + Sugar</h5>
+        <video id="video4" controls muted playsinline preload="metadata" style="width: 100%; border-radius: 6px; background-color: #000;">
+          <source id="source4" src="./static/videos/sugar_glycerin.mp4" type="video/mp4">
+        </video>
       </div>
     </div>
 
-    <!-- Dynamic Response Analysis content placeholder -->
-    <div class="content has-text-justified" style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
+    <!-- ================= Dynamic Response Section ================= -->
+    <h4 class="title is-4 mt-6 mb-3">Dynamic Response Analysis</h4>
+    <div class="content has-text-justified" style="font-size: 0.95rem; line-height: 1.6;">
       <p>
-        This section demonstrates the <strong>dynamic response</strong> of various mixtures under robotic manipulation. 
-        The placeholder text indicates potential analysis including force response patterns, material deformation, 
-        and interaction metrics across different fluid-granular combinations.
+        This section demonstrates the <strong>dynamic response</strong> of various mixtures under robotic manipulation, highlighting 
+        <strong>force response, deformation, and interaction behaviors</strong> during shaking-based evaluation. 
+        The robot executes standardized oscillations while measuring real-time force response curves. 
+        From left to right: honey, soy sauce, and cooking wine, representing a spectrum of increasing fluidity. 
+        These dynamic signatures are analyzed by <strong>GPT-4V</strong> to classify viscosity intervals, 
+        enabling targeted policy fine-tuning within plausible rheological ranges.
       </p>
     </div>
 
-    <!-- Dynamic Response Analysis Video Display -->
-    <div class="columns is-multiline is-variable is-1">
-
-      <!-- 上三列 -->
+    <!-- Dynamic Response Videos -->
+    <div class="columns is-multiline is-variable is-2 is-centered">
       <div class="column is-one-third has-text-centered">
-        <h5 class="subtitle is-5" style="margin-bottom: 0.5rem;">Water + Starch</h5>
-        <video controls muted autoplay playsinline style="width: 100%; height: auto; border-radius: 6px; background-color: #000;">
-          <source src="./static/videos/starch_water_force.mp4" type="video/mp4">
-          Your browser does not support the video tag.
+        <h5 class="subtitle is-5 mb-2">Water + Starch</h5>
+        <video controls muted playsinline preload="metadata" style="width: 100%; border-radius: 6px; background-color: #000;">
+          <source src="./static/videos/fixed_starch_water_force.mp4" type="video/mp4">
         </video>
       </div>
 
       <div class="column is-one-third has-text-centered">
-        <h5 class="subtitle is-5" style="margin-bottom: 0.5rem;">Water + Rock Sugar</h5>
-        <video controls muted autoplay playsinline style="width: 100%; height: auto; border-radius: 6px; background-color: #000;">
-          <source src="./static/videos/sugar_water_force.mp4" type="video/mp4">
-          Your browser does not support the video tag.
+        <h5 class="subtitle is-5 mb-2">Water + Rock Sugar</h5>
+        <video controls muted playsinline preload="metadata" style="width: 100%; border-radius: 6px; background-color: #000;">
+          <source src="./static/videos/fixed_sugar_water_force.mp4" type="video/mp4">
         </video>
       </div>
 
       <div class="column is-one-third has-text-centered">
-        <h5 class="subtitle is-5" style="margin-bottom: 0.5rem;">Water + Honey</h5>
-        <video controls muted autoplay playsinline style="width: 100%; height: auto; border-radius: 6px; background-color: #000;">
-          <source src="./static/videos/honey_water_force.mp4" type="video/mp4">
-          Your browser does not support the video tag.
+        <h5 class="subtitle is-5 mb-2">Water + Honey</h5>
+        <video controls muted playsinline preload="metadata" style="width: 100%; border-radius: 6px; background-color: #000;">
+          <source src="./static/videos/fixed_honey_water_force.mp4" type="video/mp4">
         </video>
       </div>
 
-      <!-- 下两列平行居中 -->
-      <div class="columns is-centered">
-        <div class="column is-one-third has-text-centered">
-          <h5 class="subtitle is-5" style="margin-bottom: 0.5rem;">Water + Glycerin</h5>
-          <video controls muted autoplay playsinline style="width: 100%; height: auto; border-radius: 6px; background-color: #000;">
-            <source src="./static/videos/g_water_force.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-
-        <div class="column is-one-third has-text-centered">
-          <h5 class="subtitle is-5" style="margin-bottom: 0.5rem;">Glycerin + Sugar</h5>
-          <video controls muted autoplay playsinline style="width: 100%; height: auto; border-radius: 6px; background-color: #000;">
-            <source src="./static/videos/sugar_g_force.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
+      <div class="column is-one-third has-text-centered">
+        <h5 class="subtitle is-5 mb-2">Water + Glycerin</h5>
+        <video controls muted playsinline preload="metadata" style="width: 100%; border-radius: 6px; background-color: #000;">
+          <source src="./static/videos/fixed_g_water_force.mp4" type="video/mp4">
+        </video>
       </div>
 
+      <div class="column is-one-third has-text-centered">
+        <h5 class="subtitle is-5 mb-2">Glycerin + Sugar</h5>
+        <video controls muted playsinline preload="metadata" style="width: 100%; border-radius: 6px; background-color: #000;">
+          <source src="./static/videos/fixed_sugar_g_force.mp4" type="video/mp4">
+        </video>
+      </div>
     </div>
 
   </div>
@@ -1072,29 +1043,29 @@
       { title: "Glycerin + Sugar", src: "./static/videos/sugar_glycerin.mp4" }
     ],
     gathering: [
-      { title: "", src: "" },
-      { title: "", src: "" },
-      { title: "", src: "" },
-      { title: "", src: "" },
-      { title: "", src: "" }
+      { title: "Gathering Placeholder 1", src: "./static/videos/gather1.mp4" },
+      { title: "Gathering Placeholder 2", src: "./static/videos/gather2.mp4" },
+      { title: "Gathering Placeholder 3", src: "./static/videos/gather3.mp4" },
+      { title: "Gathering Placeholder 4", src: "./static/videos/gather4.mp4" },
+      { title: "Gathering Placeholder 5", src: "./static/videos/gather5.mp4" }
     ]
   };
 
   const taskSelect = document.getElementById("task-select");
-
-  function loadVideos(task) {
+  const loadVideos = (task) => {
     for (let i = 0; i < 5; i++) {
       const v = videos[task][i];
       document.getElementById(`source${i}`).src = v.src;
       document.getElementById(`video${i}`).load();
       document.getElementById(`title${i}`).textContent = v.title;
     }
-  }
+  };
 
   loadVideos(taskSelect.value);
-
   taskSelect.addEventListener("change", () => loadVideos(taskSelect.value));
 </script>
+
+
 
 
 
