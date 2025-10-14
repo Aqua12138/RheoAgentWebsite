@@ -890,34 +890,46 @@
 </section>
 
 <!-- Custom Experiment Video Panel -->
-<section class="section" id="Performance of manipulating mixtures">
+<section class="section" id="Mixtures">
   <div class="container is-max-desktop">
 
     <!-- Title -->
+    <h3 class="title is-3" style="margin-bottom: 0.5rem;">Mixtures</h3>
+    <div class="content has-text-justified" style="font-size: 0.95rem; line-height: 1.6;">
+      <p>
+        To evaluate <strong>RheoAgent’s capability</strong> with <strong>multi-component materials</strong>, 
+        we conducted experiments on <strong>mixtures of fluids and granular solids</strong> 
+        with distinct <strong>rheological properties</strong> under unknown proportions. 
+        These mixtures exhibit <strong>emergent behaviors</strong> that cannot be directly 
+        inferred from individual components, posing significant <strong>challenges for robotic manipulation</strong>. 
+        <strong>RheoAgent</strong> was tasked with <strong>pouring and collection operations</strong> 
+        across representative mixtures in three categories: <strong>inviscid fluid + granular material</strong>, 
+        <strong>inviscid fluid + viscous material</strong>, and <strong>viscous fluid + granular material</strong>. 
+        Despite uncertainties in composition and heterogeneous rheology, 
+        the system <strong>successfully adapted in real time</strong>, demonstrating 
+        <strong>robust handling of complex, multi-component materials</strong> and highlighting 
+        its <strong>potential for real-world material manipulation tasks</strong>.
+      </p>          
+    </div>
+
+    <!-- Small Subtitle: Performance -->
     <div class="columns">
       <div class="column is-full">
-        <h3 class="title is-3" style="margin-bottom: 0.5rem;">Performance of Manipulating Mixtures</h3>
-        <div class="content has-text-justified" style="font-size: 0.95rem; line-height: 1.6;">
-          <p id="custom-description">
-            To evaluate <strong>RheoAgent’s capability</strong> with <strong>multi-component materials</strong>, 
-            we conducted experiments on <strong>mixtures of fluids and granular solids</strong> 
-            with distinct <strong>rheological properties</strong> under unknown proportions. 
-            These mixtures exhibit <strong>emergent behaviors</strong> that cannot be directly 
-            inferred from individual components, posing significant <strong>challenges for robotic manipulation</strong>. 
-            <strong>RheoAgent</strong> was tasked with <strong>pouring and collection operations</strong> 
-            across representative mixtures in three categories: <strong>inviscid fluid + granular material</strong>, 
-            <strong>inviscid fluid + viscous material</strong>, and <strong>viscous fluid + granular material</strong>. 
-            Despite uncertainties in composition and heterogeneous rheology, 
-            the system <strong>successfully adapted in real time</strong>, demonstrating 
-            <strong>robust handling of complex, multi-component materials</strong> and highlighting 
-            its <strong>potential for real-world material manipulation tasks</strong>.
-          </p>          
-        </div>
+        <h4 class="title is-4" style="margin-bottom: 0.5rem;">Manipulating Performance</h4>
       </div>
     </div>
 
-    <!-- Task Select -->
-    <div class="columns is-centered">
+    <!-- Performance content placeholder -->
+    <div class="content has-text-justified" style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
+      <p>
+        This section presents the <strong>overall performance metrics</strong> and evaluation of RheoAgent on multi-component material manipulation. 
+        Here we provide a placeholder text to indicate the type of analysis that will appear, including success rates, efficiency, 
+        and stability metrics for various fluid and granular mixtures.
+      </p>
+    </div>
+
+    <!-- Task Select below Performance content -->
+    <div class="columns is-centered" style="margin-bottom: 1.5rem;">
       <div class="column is-half">
         <div class="field">
           <label class="label">Task</label>
@@ -933,12 +945,12 @@
       </div>
     </div>
 
-    <!-- Video Display -->
+    <!-- Performance Video Display -->
     <div class="columns is-multiline is-variable is-1">
 
       <!-- 上三列 -->
       <div class="column is-one-third has-text-centered">
-        <h4 class="subtitle is-5" style="margin-bottom: 0.5rem;" id="title0">Water + Cornstarch</h4>
+        <h5 class="subtitle is-5" style="margin-bottom: 0.5rem;" id="title0">Water + Starch</h5>
         <video id="video0" controls muted autoplay playsinline style="width: 100%; height: auto; border-radius: 6px; background-color: #000;">
           <source id="source0" src="./static/videos/cornstarch_water.mp4" type="video/mp4">
           Your browser does not support the video tag.
@@ -946,7 +958,7 @@
       </div>
 
       <div class="column is-one-third has-text-centered">
-        <h4 class="subtitle is-5" style="margin-bottom: 0.5rem;" id="title1">Water + Rock Sugar</h4>
+        <h5 class="subtitle is-5" style="margin-bottom: 0.5rem;" id="title1">Water + Rock Sugar</h5>
         <video id="video1" controls muted autoplay playsinline style="width: 100%; height: auto; border-radius: 6px; background-color: #000;">
           <source id="source1" src="./static/videos/rocksugar_water.mp4" type="video/mp4">
           Your browser does not support the video tag.
@@ -954,17 +966,17 @@
       </div>
 
       <div class="column is-one-third has-text-centered">
-        <h4 class="subtitle is-5" style="margin-bottom: 0.5rem;" id="title2">Water + Honey</h4>
+        <h5 class="subtitle is-5" style="margin-bottom: 0.5rem;" id="title2">Water + Honey</h5>
         <video id="video2" controls muted autoplay playsinline style="width: 100%; height: auto; border-radius: 6px; background-color: #000;">
           <source id="source2" src="./static/videos/honey_water.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
 
-      <!-- 下两列平行居中，与上方对齐 -->
+      <!-- 下两列平行居中 -->
       <div class="columns is-centered">
         <div class="column is-one-third has-text-centered">
-          <h4 class="subtitle is-5" style="margin-bottom: 0.5rem;" id="title3">Water + Glycerin</h4>
+          <h5 class="subtitle is-5" style="margin-bottom: 0.5rem;" id="title3">Water + Glycerin</h5>
           <video id="video3" controls muted autoplay playsinline style="width: 100%; height: auto; border-radius: 6px; background-color: #000;">
             <source id="source3" src="./static/videos/glycerin_water.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -972,15 +984,81 @@
         </div>
 
         <div class="column is-one-third has-text-centered">
-          <h4 class="subtitle is-5" style="margin-bottom: 0.5rem;" id="title4">Glycerin + Sugar</h4>
+          <h5 class="subtitle is-5" style="margin-bottom: 0.5rem;" id="title4">Glycerin + Sugar</h5>
           <video id="video4" controls muted autoplay playsinline style="width: 100%; height: auto; border-radius: 6px; background-color: #000;">
             <source id="source4" src="./static/videos/sugar_glycerin.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
       </div>
-      
+
     </div>
+
+    <!-- Dynamic Response Analysis Small Subtitle -->
+    <div class="columns" style="margin-top: 2rem;">
+      <div class="column is-full">
+        <h4 class="title is-4" style="margin-bottom: 0.5rem;">Dynamic Response Analysis</h4>
+      </div>
+    </div>
+
+    <!-- Dynamic Response Analysis content placeholder -->
+    <div class="content has-text-justified" style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
+      <p>
+        This section demonstrates the <strong>dynamic response</strong> of various mixtures under robotic manipulation. 
+        The placeholder text indicates potential analysis including force response patterns, material deformation, 
+        and interaction metrics across different fluid-granular combinations.
+      </p>
+    </div>
+
+    <!-- Dynamic Response Analysis Video Display -->
+    <div class="columns is-multiline is-variable is-1">
+
+      <!-- 上三列 -->
+      <div class="column is-one-third has-text-centered">
+        <h5 class="subtitle is-5" style="margin-bottom: 0.5rem;">Water + Starch</h5>
+        <video controls muted autoplay playsinline style="width: 100%; height: auto; border-radius: 6px; background-color: #000;">
+          <source src="./static/videos/starch_water_force.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="column is-one-third has-text-centered">
+        <h5 class="subtitle is-5" style="margin-bottom: 0.5rem;">Water + Rock Sugar</h5>
+        <video controls muted autoplay playsinline style="width: 100%; height: auto; border-radius: 6px; background-color: #000;">
+          <source src="./static/videos/sugar_water_force.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="column is-one-third has-text-centered">
+        <h5 class="subtitle is-5" style="margin-bottom: 0.5rem;">Water + Honey</h5>
+        <video controls muted autoplay playsinline style="width: 100%; height: auto; border-radius: 6px; background-color: #000;">
+          <source src="./static/videos/honey_water_force.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <!-- 下两列平行居中 -->
+      <div class="columns is-centered">
+        <div class="column is-one-third has-text-centered">
+          <h5 class="subtitle is-5" style="margin-bottom: 0.5rem;">Water + Glycerin</h5>
+          <video controls muted autoplay playsinline style="width: 100%; height: auto; border-radius: 6px; background-color: #000;">
+            <source src="./static/videos/g_water_force.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <div class="column is-one-third has-text-centered">
+          <h5 class="subtitle is-5" style="margin-bottom: 0.5rem;">Glycerin + Sugar</h5>
+          <video controls muted autoplay playsinline style="width: 100%; height: auto; border-radius: 6px; background-color: #000;">
+            <source src="./static/videos/sugar_g_force.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </section>
 
@@ -1020,7 +1098,28 @@
 
 
 
-<!-- Multi-Robot Collaboration Section -->
+
+
+<!-- Multi-Robot Collaborati", src: "" },
+      { title: "", src: "" }
+    ]
+  };
+
+  const taskSelect = document.getElementById("task-select");
+
+  function loadVideos(task) {
+    for (let i = 0; i < 5; i++) {
+      const v = videos[task][i];
+      document.getElementById(`source${i}`).src = v.src;
+      document.getElementById(`video${i}`).load();
+      document.getElementById(`title${i}`).textContent = v.title;
+    }
+  }
+
+  loadVideos(taskSelect.value);
+
+  taskSelect.addEventListener("change", () => loadVideos(taskSelect.value));
+</script>on Section -->
 <section class="section">
   <div class="container is-max-desktop">
     <hr>
