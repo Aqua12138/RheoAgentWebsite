@@ -896,7 +896,7 @@
     <!-- Title -->
     <div class="columns">
       <div class="column is-full">
-        <h3 class="title is-3" style="margin-bottom: 0.5rem;">Custom Experiment Videos</h3>
+        <h3 class="title is-3" style="margin-bottom: 0.5rem;">Mixture Experiment Videos</h3>
         <div class="content has-text-justified" style="font-size: 0.95rem; line-height: 1.6;">
           <p id="custom-description">
             To evaluate <strong>RheoAgent’s capability</strong> with <strong>multi-component materials</strong>, 
@@ -961,23 +961,24 @@
         </video>
       </div>
 
-      <!-- 下两列平行居中 -->
-      <div class="column is-one-quarter is-offset-one-quarter has-text-centered">
-        <h4 class="subtitle is-5" style="margin-bottom: 0.5rem;" id="title3">Water + Glycerin</h4>
-        <video id="video3" controls muted autoplay playsinline style="width: 100%; height: auto; border-radius: 6px; background-color: #000;">
-          <source id="source3" src="./static/videos/glycerin_water.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
+      <!-- 下两列平行居中，与上方对齐 -->
+      <div class="columns is-centered">
+        <div class="column is-one-third has-text-centered">
+          <h4 class="subtitle is-5" style="margin-bottom: 0.5rem;" id="title3">Water + Glycerin</h4>
+          <video id="video3" controls muted autoplay playsinline style="width: 100%; height: auto; border-radius: 6px; background-color: #000;">
+            <source id="source3" src="./static/videos/glycerin_water.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
 
-      <div class="column is-one-quarter has-text-centered">
-        <h4 class="subtitle is-5" style="margin-bottom: 0.5rem;" id="title4">Glycerin + Sugar</h4>
-        <video id="video4" controls muted autoplay playsinline style="width: 100%; height: auto; border-radius: 6px; background-color: #000;">
-          <source id="source4" src="./static/videos/sugar_glycerin.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+        <div class="column is-one-third has-text-centered">
+          <h4 class="subtitle is-5" style="margin-bottom: 0.5rem;" id="title4">Glycerin + Sugar</h4>
+          <video id="video4" controls muted autoplay playsinline style="width: 100%; height: auto; border-radius: 6px; background-color: #000;">
+            <source id="source4" src="./static/videos/sugar_glycerin.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </div>
-
     </div>
   </div>
 </section>
