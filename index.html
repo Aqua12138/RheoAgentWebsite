@@ -890,11 +890,11 @@
 </section>
 
 <!-- Custom Experiment Video Panel -->
-<section class="section" id="Mixtures">
+<section class="section" id="Performance of manipulating mixtures">
   <div class="container is-max-desktop">
 
     <!-- Title -->
-    <h3 class="title is-3 mb-3">Mixtures</h3>
+    <h3 class="title is-3 mb-3">Performance of manipulating mixtures</h3>
     <div class="content has-text-justified" style="font-size: 0.95rem; line-height: 1.6;">
       <p>
         To evaluate <strong>RheoAgent’s capability</strong> with <strong>multi-component materials</strong>, 
@@ -910,18 +910,6 @@
         <strong>robust handling of complex, multi-component materials</strong> and highlighting 
         its <strong>potential for real-world material manipulation tasks</strong>.
       </p>          
-    </div>
-
-    <!-- ================= Performance Section ================= -->
-    <h4 class="title is-4 mt-5 mb-3">Manipulating Performance</h4>
-    <div class="content has-text-justified" style="font-size: 0.95rem; line-height: 1.6;">
-      <p>
-        These videos present the <strong>overall performance evaluation</strong> of <strong>RheoAgent</strong> in multi-component material manipulation tasks. 
-        Across a series of pouring and collection experiments, the system achieved <strong>a consistently high success rate</strong> even under 
-        <strong>unknown mixing ratios and diverse rheological conditions</strong>, demonstrating <strong>highly stable task execution</strong>. 
-        RheoAgent also exhibited <strong>strong generalization capability</strong> across different material categories, 
-        validating its <strong>robustness and reliability in complex, real-world scenarios</strong>.
-      </p>
     </div>
 
     <!-- Task Select -->
@@ -946,102 +934,48 @@
       <div class="column is-one-third has-text-centered">
         <h5 id="title0" class="subtitle is-5 mb-2">Water + Starch</h5>
         <video id="video0" controls muted playsinline preload="metadata" style="width: 100%; border-radius: 6px; background-color: #000;">
-          <source id="source0" src="./static/videos/cornstarch_water.mp4" type="video/mp4">
+          <source id="source0" src="./static/videos/pour_w_starch_h264.mp4" type="video/mp4">
         </video>
       </div>
 
       <div class="column is-one-third has-text-centered">
         <h5 id="title1" class="subtitle is-5 mb-2">Water + Rock Sugar</h5>
         <video id="video1" controls muted playsinline preload="metadata" style="width: 100%; border-radius: 6px; background-color: #000;">
-          <source id="source1" src="./static/videos/rocksugar_water.mp4" type="video/mp4">
+          <source id="source1" src="./static/videos/pour_w_sugar_h264.mp4" type="video/mp4">
         </video>
       </div>
 
       <div class="column is-one-third has-text-centered">
         <h5 id="title2" class="subtitle is-5 mb-2">Water + Honey</h5>
         <video id="video2" controls muted playsinline preload="metadata" style="width: 100%; border-radius: 6px; background-color: #000;">
-          <source id="source2" src="./static/videos/honey_water.mp4" type="video/mp4">
+          <source id="source2" src="./static/videos/pour_w_h_h264.mp4" type="video/mp4">
         </video>
       </div>
 
       <div class="column is-one-third has-text-centered">
         <h5 id="title3" class="subtitle is-5 mb-2">Water + Glycerin</h5>
         <video id="video3" controls muted playsinline preload="metadata" style="width: 100%; border-radius: 6px; background-color: #000;">
-          <source id="source3" src="./static/videos/glycerin_water.mp4" type="video/mp4">
+          <source id="source3" src="./static/videos/pour_w_g_h264.mp4" type="video/mp4">
         </video>
       </div>
 
       <div class="column is-one-third has-text-centered">
         <h5 id="title4" class="subtitle is-5 mb-2">Glycerin + Sugar</h5>
         <video id="video4" controls muted playsinline preload="metadata" style="width: 100%; border-radius: 6px; background-color: #000;">
-          <source id="source4" src="./static/videos/sugar_glycerin.mp4" type="video/mp4">
+          <source id="source4" src="./static/videos/pour_g_s_h264.mp4" type="video/mp4">
         </video>
       </div>
     </div>
-
-    <!-- ================= Dynamic Response Section ================= -->
-    <h4 class="title is-4 mt-6 mb-3">Dynamic Response Analysis</h4>
-    <div class="content has-text-justified" style="font-size: 0.95rem; line-height: 1.6;">
-      <p>
-        These videos illustrate the <strong>dynamic interaction behaviors</strong> of multi-component mixtures under controlled shaking experiments. 
-        During evaluation, the robot executed <strong>standardized oscillatory motions</strong> while continuously recording 
-        <strong>force–time responses</strong> from the end-effector. These force response curves were analyzed using 
-        <strong>GPT-4V–assisted rheological reasoning</strong>, enabling the identification of subtle variations in 
-        <strong>effective viscosity</strong> and <strong>particle–fluid coupling</strong>. The resulting dynamic response signatures serve as 
-        <strong>diagnostic features</strong> for adaptive policy fine-tuning, ensuring that <strong>RheoAgent</strong> can seamlessly adjust 
-        manipulation strategies across mixtures with heterogeneous flow and deformation properties.
-      </p>
-    </div>
-
-    <!-- Dynamic Response Videos -->
-    <div class="columns is-multiline is-variable is-2 is-centered">
-      <div class="column is-one-third has-text-centered">
-        <h5 class="subtitle is-5 mb-2">Water + Starch</h5>
-        <video controls muted playsinline preload="metadata" style="width: 100%; border-radius: 6px; background-color: #000;">
-          <source src="./static/videos/fixed_starch_water_force.mp4" type="video/mp4">
-        </video>
-      </div>
-
-      <div class="column is-one-third has-text-centered">
-        <h5 class="subtitle is-5 mb-2">Water + Rock Sugar</h5>
-        <video controls muted playsinline preload="metadata" style="width: 100%; border-radius: 6px; background-color: #000;">
-          <source src="./static/videos/fixed_sugar_water_force.mp4" type="video/mp4">
-        </video>
-      </div>
-
-      <div class="column is-one-third has-text-centered">
-        <h5 class="subtitle is-5 mb-2">Water + Honey</h5>
-        <video controls muted playsinline preload="metadata" style="width: 100%; border-radius: 6px; background-color: #000;">
-          <source src="./static/videos/fixed_honey_water_force.mp4" type="video/mp4">
-        </video>
-      </div>
-
-      <div class="column is-one-third has-text-centered">
-        <h5 class="subtitle is-5 mb-2">Water + Glycerin</h5>
-        <video controls muted playsinline preload="metadata" style="width: 100%; border-radius: 6px; background-color: #000;">
-          <source src="./static/videos/fixed_g_water_force.mp4" type="video/mp4">
-        </video>
-      </div>
-
-      <div class="column is-one-third has-text-centered">
-        <h5 class="subtitle is-5 mb-2">Glycerin + Sugar</h5>
-        <video controls muted playsinline preload="metadata" style="width: 100%; border-radius: 6px; background-color: #000;">
-          <source src="./static/videos/fixed_sugar_g_force.mp4" type="video/mp4">
-        </video>
-      </div>
-    </div>
-
-  </div>
 </section>
 
 <script>
   const videos = {
     pouring: [
-      { title: "Water + Cornstarch", src: "./static/videos/cornstarch_water.mp4" },
-      { title: "Water + Rock Sugar", src: "./static/videos/rocksugar_water.mp4" },
-      { title: "Water + Honey", src: "./static/videos/honey_water.mp4" },
-      { title: "Water + Glycerin", src: "./static/videos/glycerin_water.mp4" },
-      { title: "Glycerin + Sugar", src: "./static/videos/sugar_glycerin.mp4" }
+      { title: "Water + Starch", src: "./static/videos/pour_w_starch_h264.mp4" },
+      { title: "Water + Rock Sugar", src: "./static/videos/pour_w_sugar_h264.mp4" },
+      { title: "Water + Honey", src: "./static/videos/pour_w_h_h264.mp4" },
+      { title: "Water + Glycerin", src: "./static/videos/pour_w_g_h264.mp4" },
+      { title: "Glycerin + Sugar", src: "./static/videos/pour_g_s_h264.mp4" }
     ],
     gathering: [
       { title: "Gathering Placeholder 1", src: "./static/videos/gather1.mp4" },
@@ -1065,8 +999,6 @@
   loadVideos(taskSelect.value);
   taskSelect.addEventListener("change", () => loadVideos(taskSelect.value));
 </script>
-
-
 
 
 
