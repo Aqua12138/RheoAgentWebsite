@@ -890,7 +890,7 @@
 </section>
 
 <!-- Custom Experiment Video Panel -->
-<section class="section" id="Performance of manipulating mixtures">
+<section class="section" id="Performance-of-manipulating-mixtures">
   <div class="container is-max-desktop">
 
     <!-- Title -->
@@ -919,7 +919,8 @@
           <label class="label">Task</label>
           <div class="control">
             <div class="select is-fullwidth">
-              <select id="task-select">
+              <!-- 唯一 ID -->
+              <select id="task-select-mixtures">
                 <option value="pouring">Pouring</option>
                 <option value="gathering">Gathering</option>
               </select>
@@ -930,46 +931,45 @@
     </div>
 
     <!-- Performance Videos -->
-    <div id="performance-videos" class="columns is-multiline is-variable is-2 is-centered">
+    <div id="performance-videos-mixtures" class="columns is-multiline is-variable is-2 is-centered">
+      <!-- 5 视频列 -->
       <div class="column is-one-third has-text-centered">
-        <h5 id="title0" class="subtitle is-5 mb-2">Water + Starch</h5>
-        <video id="video0" controls muted playsinline preload="metadata" style="width: 100%; border-radius: 6px; background-color: #000;">
-          <source id="source0" src="./static/videos/pour_w_starch_h264.mp4" type="video/mp4">
+        <h5 id="title0-mixtures" class="subtitle is-5 mb-2"></h5>
+        <video id="video0-mixtures" controls muted playsinline preload="metadata" style="width: 100%; border-radius: 6px; background-color: #000;">
+          <source id="source0-mixtures" src="" type="video/mp4">
         </video>
       </div>
-
       <div class="column is-one-third has-text-centered">
-        <h5 id="title1" class="subtitle is-5 mb-2">Water + Rock Sugar</h5>
-        <video id="video1" controls muted playsinline preload="metadata" style="width: 100%; border-radius: 6px; background-color: #000;">
-          <source id="source1" src="./static/videos/pour_w_sugar_h264.mp4" type="video/mp4">
+        <h5 id="title1-mixtures" class="subtitle is-5 mb-2"></h5>
+        <video id="video1-mixtures" controls muted playsinline preload="metadata" style="width: 100%; border-radius: 6px; background-color: #000;">
+          <source id="source1-mixtures" src="" type="video/mp4">
         </video>
       </div>
-
       <div class="column is-one-third has-text-centered">
-        <h5 id="title2" class="subtitle is-5 mb-2">Water + Honey</h5>
-        <video id="video2" controls muted playsinline preload="metadata" style="width: 100%; border-radius: 6px; background-color: #000;">
-          <source id="source2" src="./static/videos/pour_w_h_h264.mp4" type="video/mp4">
+        <h5 id="title2-mixtures" class="subtitle is-5 mb-2"></h5>
+        <video id="video2-mixtures" controls muted playsinline preload="metadata" style="width: 100%; border-radius: 6px; background-color: #000;">
+          <source id="source2-mixtures" src="" type="video/mp4">
         </video>
       </div>
-
       <div class="column is-one-third has-text-centered">
-        <h5 id="title3" class="subtitle is-5 mb-2">Water + Glycerin</h5>
-        <video id="video3" controls muted playsinline preload="metadata" style="width: 100%; border-radius: 6px; background-color: #000;">
-          <source id="source3" src="./static/videos/pour_w_g_h264.mp4" type="video/mp4">
+        <h5 id="title3-mixtures" class="subtitle is-5 mb-2"></h5>
+        <video id="video3-mixtures" controls muted playsinline preload="metadata" style="width: 100%; border-radius: 6px; background-color: #000;">
+          <source id="source3-mixtures" src="" type="video/mp4">
         </video>
       </div>
-
       <div class="column is-one-third has-text-centered">
-        <h5 id="title4" class="subtitle is-5 mb-2">Glycerin + Sugar</h5>
-        <video id="video4" controls muted playsinline preload="metadata" style="width: 100%; border-radius: 6px; background-color: #000;">
-          <source id="source4" src="./static/videos/pour_g_s_h264.mp4" type="video/mp4">
+        <h5 id="title4-mixtures" class="subtitle is-5 mb-2"></h5>
+        <video id="video4-mixtures" controls muted playsinline preload="metadata" style="width: 100%; border-radius: 6px; background-color: #000;">
+          <source id="source4-mixtures" src="" type="video/mp4">
         </video>
       </div>
     </div>
+
+  </div>
 </section>
 
 <script>
-  const videos = {
+  const videosMixtures = {
     pouring: [
       { title: "Water + Starch", src: "./static/videos/pour_w_starch_h264.mp4" },
       { title: "Water + Rock Sugar", src: "./static/videos/pour_w_sugar_h264.mp4" },
@@ -986,38 +986,45 @@
     ]
   };
 
-  const taskSelect = document.getElementById("task-select");
+  const taskSelectMixtures = document.getElementById("task-select-mixtures");
 
-  function loadVideos(task) {
+  function loadVideosMixtures(taskKey) {
+    if (!videosMixtures[taskKey]) {
+      console.warn("Task key not found:", taskKey);
+      return;
+    }
+
     for (let i = 0; i < 5; i++) {
-      const v = videos[task][i];
-      const videoEl = document.getElementById(`video${i}`);
-      const titleEl = document.getElementById(`title${i}`);
+      const v = videosMixtures[taskKey][i];
+      if (!v) continue;
 
-      // 更新标题
+      const videoEl = document.getElementById(`video${i}-mixtures`);
+      const sourceEl = document.getElementById(`source${i}-mixtures`);
+      const titleEl = document.getElementById(`title${i}-mixtures`);
+
       titleEl.textContent = v.title;
-
-      // 更新视频 src 并重载
-      // 防止缓存，加上时间戳参数
-      const newSrc = v.src + "?t=" + Date.now();
-      const sourceEl = videoEl.querySelector("source");
-      sourceEl.src = newSrc;
-
-      videoEl.load(); // 刷新视频
-      // 不自动播放，不调用 videoEl.play()
+      sourceEl.src = v.src + "?t=" + Date.now(); // 防缓存
+      videoEl.load(); // 保留手动播放
     }
   }
 
-  // 等 DOM 完全加载后初始化
   document.addEventListener("DOMContentLoaded", () => {
-    loadVideos(taskSelect.value);
+    // 强制将 select.value 设置为 videos 对象 key
+    taskSelectMixtures.value = "pouring";
+    loadVideosMixtures(taskSelectMixtures.value);
 
-    // 切换任务时刷新视频
-    taskSelect.addEventListener("change", () => {
-      loadVideos(taskSelect.value);
+    taskSelectMixtures.addEventListener("change", () => {
+      loadVideosMixtures(taskSelectMixtures.value);
     });
   });
 </script>
+
+
+  
+  
+
+
+
 
 
 
