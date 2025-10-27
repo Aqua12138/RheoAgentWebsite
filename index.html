@@ -978,27 +978,50 @@
       { title: "Glycerin + Sugar", src: "./static/videos/pour_g_s_h264.mp4" }
     ],
     gathering: [
-      { title: "Gathering Placeholder 1", src: "./static/videos/gather1.mp4" },
-      { title: "Gathering Placeholder 2", src: "./static/videos/gather2.mp4" },
-      { title: "Gathering Placeholder 3", src: "./static/videos/gather3.mp4" },
-      { title: "Gathering Placeholder 4", src: "./static/videos/gather4.mp4" },
-      { title: "Gathering Placeholder 5", src: "./static/videos/gather5.mp4" }
+      { title: "Water + Starch", src: "./static/videos/gather_w_starch.mp4" },
+      { title: "Water + Rock Sugar", src: "./static/videos/gather_w_sugar.mp4" },
+      { title: "Water + Honey", src: "./static/videos/gather_w_h.mp4" },
+      { title: "Water + Glycerin", src: "./static/videos/gather_w_g.mp4" },
+      { title: "Glycerin + Sugar", src: "./static/videos/gather_g_s.mp4" }
     ]
   };
 
   const taskSelect = document.getElementById("task-select");
-  const loadVideos = (task) => {
+
+  function loadVideos(task) {
     for (let i = 0; i < 5; i++) {
       const v = videos[task][i];
-      document.getElementById(`source${i}`).src = v.src;
-      document.getElementById(`video${i}`).load();
-      document.getElementById(`title${i}`).textContent = v.title;
-    }
-  };
+      const videoEl = document.getElementById(`video${i}`);
+      const titleEl = document.getElementById(`title${i}`);
 
-  loadVideos(taskSelect.value);
-  taskSelect.addEventListener("change", () => loadVideos(taskSelect.value));
+      // 更新标题
+      titleEl.textContent = v.title;
+
+      // 更新视频 src 并重载
+      // 防止缓存，加上时间戳参数
+      const newSrc = v.src + "?t=" + Date.now();
+      const sourceEl = videoEl.querySelector("source");
+      sourceEl.src = newSrc;
+
+      videoEl.load(); // 刷新视频
+      // 不自动播放，不调用 videoEl.play()
+    }
+  }
+
+  // 等 DOM 完全加载后初始化
+  document.addEventListener("DOMContentLoaded", () => {
+    loadVideos(taskSelect.value);
+
+    // 切换任务时刷新视频
+    taskSelect.addEventListener("change", () => {
+      loadVideos(taskSelect.value);
+    });
+  });
 </script>
+
+
+
+
 
 
 
